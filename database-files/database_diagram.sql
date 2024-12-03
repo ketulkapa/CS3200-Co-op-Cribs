@@ -30,12 +30,20 @@ CREATE TABLE IF NOT EXISTS reviews (
   FOREIGN KEY (reviewee_id) REFERENCES users(user_id)
 );
 
+CREATE TABLE IF NOT EXISTS neighborhoods (
+  neighborhood_id INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  population_density INTEGER,
+  safety_travel INTEGER,
+  insights TEXT
+);
+
 CREATE TABLE IF NOT EXISTS listings (
   listing_id CHAR(8) PRIMARY KEY,
   rent_amount INTEGER,
   title VARCHAR(255),
   description TEXT,
-  amnetities TEXT,
+  amenities TEXT,
   match_score INTEGER,
   safety_rating INTEGER,
   location VARCHAR(255),
@@ -71,14 +79,6 @@ CREATE TABLE IF NOT EXISTS roommateMatches (
   FOREIGN KEY (user2) REFERENCES users(user_id)
 );
 
-CREATE TABLE IF NOT EXISTS neighborhoods (
-  neighborhood_id INTEGER PRIMARY KEY,
-  name VARCHAR(255),
-  population_density INTEGER,
-  safety_travel INTEGER,
-  insights TEXT
-);
-
 CREATE TABLE IF NOT EXISTS analyticsDashboard (
   dashboard_id INTEGER PRIMARY KEY,
   seasonal_trend VARCHAR(255),
@@ -101,29 +101,6 @@ CREATE TABLE IF NOT EXISTS housingCoordinator (
 );
 
 
-ALTER TABLE reviews ADD FOREIGN KEY (reviewer_id) REFERENCES users (user_id);
-
-ALTER TABLE reviews ADD FOREIGN KEY (reviewee_id) REFERENCES users (user_id);
-
-ALTER TABLE listings ADD FOREIGN KEY (created_by) REFERENCES users (user_id);
-
-ALTER TABLE listings ADD FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods (neighborhood_id);
-
-ALTER TABLE message ADD FOREIGN KEY (sender_id) REFERENCES users (user_id);
-
-ALTER TABLE message ADD FOREIGN KEY (receiver_id) REFERENCES users (user_id);
-
-ALTER TABLE roommateMatches ADD FOREIGN KEY (user1) REFERENCES users (user_id);
-
-ALTER TABLE roommateMatches ADD FOREIGN KEY (user2) REFERENCES users (user_id);
-
-ALTER TABLE analyticsDashboard ADD FOREIGN KEY (neighborhood) REFERENCES neighborhoods (neighborhood_id);
-
-ALTER TABLE analyticsDashboard ADD FOREIGN KEY (dashboard_id) REFERENCES housingCoordinator (dashboard_access);
-
-ALTER TABLE listings ADD FOREIGN KEY (listing_id) REFERENCES housingCoordinator (managed_listings);
-
-
 INSERT IGNORE INTO users (user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location)
 VALUES
 ('U000001', 'Student', '555-1234', 'Fall 2024 - Spring 2025', '1000-1500', 'Looking for a subletter', 'John', 'Doe', 'john.doe@email.com', 'High', 'Technology, Sports', 'Northeastern University', 21, 'Boston'),
@@ -134,7 +111,7 @@ VALUES
 ('R000001', 5, 'U000001', 'U000002', '2024-11-01 10:30:00', 'Great roommate, very clean and organized.', 8),
 ('R000002', 4, 'U000002', 'U000001', '2024-11-05 15:45:00', 'Friendly and respectful, highly recommend!', 9);
 
-INSERT IGNORE INTO listings (listing_id, rent_amount, title, description, amnetities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+INSERT IGNORE INTO listings (listing_id, rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
 VALUES
 ('L000001', 1500, 'Spacious Apartment in Boston', '2-bedroom apartment close to campus', 'WiFi, Heating, Laundry', 85, 7, 'Boston', 'U000001', 1, 123, 'Main Street', 'Boston', 02115, TRUE, 6),
 ('L000002', 1800, 'Cozy Cambridge Studio', 'Studio apartment with great amenities', 'AC, Parking, Gym Access', 78, 8, 'Cambridge', 'U000002', 2, 456, 'Elm Street', 'Cambridge', 02138, FALSE, 3);
