@@ -17,7 +17,7 @@ listings = Blueprint('listings', __name__)
 
 
 #------------------------------------------------------------
-# Get all customers from the system
+# Get all listings
 @listings.route('/listings', methods=['GET'])
 def get_listings():
 
@@ -32,6 +32,7 @@ def get_listings():
     the_response.status_code = 200
     return the_response
 
+# Add a new listing
 @listings.route('/listings', methods=['POST'])
 def add_listing():
     current_app.logger.info('PUT /listings route')
@@ -66,7 +67,7 @@ def add_listing():
 
     return the_response
 
-
+# Get a listing by ID
 @listings.route('listings/<listingID>', methods=['GET'])
 def get_listing(listingID):
     cursor = db.get_db().cursor()
@@ -80,6 +81,7 @@ def get_listing(listingID):
     the_response.status_code = 200
     return the_response
 
+# Update a listing by ID
 @listings.route('listings/<listingID>', methods=['PUT'])
 def update_listing(listing_id):
     current_app.logger.info('PUT /listings/<listingID> route')
@@ -113,6 +115,7 @@ def update_listing(listing_id):
     the_response.status_code = 200
     return the_response
 
+# Delete a listing by ID
 @listings.route('listings/<listingID>', methods=['DELETE'])
 def delete_listing(listing_id):
     query = '''
@@ -128,11 +131,30 @@ def delete_listing(listing_id):
     the_response.status_code = 200
     return the_response
 
+# Get all listings created in the last 7 days
 @listings.route('/listings/new', methods=['GET'])
 def get_new_listings():
     cursor = db.get_db().cursor()
     cursor.execute('''
-                    SELECT * FROM listings WHERE verification_status = 'new'
+                   SELECT 
+                   rent_amount, 
+                   title, 
+                   description, 
+                   amenities, 
+                   match_score, 
+                   safety_rating, 
+                   location, 
+                   created_by, 
+                   neighborhood_id, 
+                   house_number, 
+                   street, 
+                   city, 
+                   zipcode, 
+                   verification_status, 
+                   timeline 
+                   FROM listings 
+                   WHERE created_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY);
+
     ''')
     
     theData = cursor.fetchall()
