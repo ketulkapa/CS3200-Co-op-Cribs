@@ -32,6 +32,13 @@ def get_listings():
     the_response.status_code = 200
     return the_response
 
+@listings.route('/listings', methods=['POST'])
+def add_listing():
+    current_app.logger.info('PUT /listings route')
+    listing_info = request.json
+    listing_
+
+
 @listings.route('listing/<listingID>', methods=['GET'])
 def get_listing(listingID):
     cursor = db.get_db().cursor()
