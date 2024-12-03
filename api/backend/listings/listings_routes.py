@@ -72,7 +72,7 @@ def add_listing():
 def get_listing(listingID):
     cursor = db.get_db().cursor()
     cursor.execute('''
-                    SELECT * FROM listings WHERE id = {0}
+                    SELECT * FROM listings WHERE listing_id = {0}
     '''.format(listingID))
     
     theData = cursor.fetchall()
@@ -119,7 +119,7 @@ def update_listing(listing_id):
 @listings.route('/listings/<listingID>', methods=['DELETE'])
 def delete_listing(listing_id):
     query = '''
-        DELETE FROM listings WHERE id = %s
+        DELETE FROM listings WHERE listing_id = %s
     '''
     data = (listing_id)
 
@@ -167,7 +167,7 @@ def get_new_listings():
 @listings.route('/listings/approve/<listingID>', methods=['PUT'])
 def approve_listing(listing_id):
     query = '''
-        UPDATE listings SET verification_status = TRUE WHERE id = %s
+        UPDATE listings SET verification_status = TRUE WHERE listing_id = %s
     '''
     data = (listing_id)
 
@@ -183,7 +183,7 @@ def approve_listing(listing_id):
 @listings.route('/listings/deny/<listingID>', methods=['PUT'])
 def deny_listing(listing_id):
     query = '''
-        UPDATE listings SET verification_status = FALSE WHERE id = %s
+        UPDATE listings SET verification_status = FALSE WHERE listing_id = %s
     '''
     data = (listing_id)
 
