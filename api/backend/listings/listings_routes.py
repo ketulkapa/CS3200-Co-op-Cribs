@@ -194,3 +194,36 @@ def deny_listing(listing_id):
     the_response = make_response(jsonify('listing denied!'))
     the_response.status_code = 200
     return the_response
+
+# Get a listing based on filters
+@listings.route('/listings/filter', methods=['GET'])
+def filter_listings():
+    current_app.logger.info('GET /listings/filter route')
+    listing_info = request.json
+    rent_amount = listing_info['rent_amount']
+    title = listing_info['title']
+    description = listing_info['description']
+    amenities = listing_info['amenities']
+    safety_rating = listing_info['safety_rating']
+    location = listing_info['location']
+    created_by = listing_info['created_by']
+    neighborhood_id = listing_info['neighborhood_id']
+    house_number = listing_info['house_number']
+    street = listing_info['street']
+    city = listing_info['city']
+    zipcode = listing_info['zipcode']
+    verification_status = listing_info['verification_status']
+    timeline = listing_info['timeline']
+
+    query = '''
+        SELECT * FROM listings WHERE rent_amount = %s AND title = %s AND description = %s AND amenities = %s AND safety_rating = %s AND location = %s AND created_by = %s AND neighborhood_id = %s AND house_number = %s AND street = %s AND city = %s AND zipcode = %s AND verification_status = %s AND timeline = %s
+    '''
+    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing filtered!'))
+    the_response.status_code = 200
+    return the_response
