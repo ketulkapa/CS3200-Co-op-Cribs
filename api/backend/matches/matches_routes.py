@@ -44,3 +44,29 @@ def delete_match(user_id):
     response = make_response(jsonify({'message': 'Roommate match deleted successfully!'}))
     response.status_code = 200
     return response
+
+@matches.route('/matches/<int:user_id>', methods=['GET'])
+def get_personalized_roommate_matches(user_id):
+    current_app.logger.info('GET /matches/<user_id> route')
+
+    query = '''
+        SELECT rm.match_id, rm.user2 AS matched_user_id, rm.compatability_score, rm.shared_interests,
+               u.first_name, u.last_name, u.budget, u.preferred_location, u.interests
+        FROM roommateMatches rm
+        JOIN users u ON rm.user2 = u.user_id
+        WHERE rm.user1 = %s
+        ORDER BY rm.compatability_score DESC
+    '''
+    
+    cursor = db.get_db().cursor(dictionary=True)
+    cursor.execute(query, (user_id,))
+    matches = cursor.fetchall()
+
+    if not matches:
+        response = make_response(jsonify({'message': 'No matches found for the user.'}))
+        response.status_code = 404
+        return response
+
+    response = make_response(jsonify({'matches': matches}))
+    response.status_code = 200
+    return response
