@@ -37,6 +37,32 @@ def get_dashboard(dashboard_id):
     the_response.status_code = 200
     return the_response
 
+# Add a new dashboard
+@dashboard.route('dashboard/<int:dashboard_id>', methods=['POST'])
+def add_dashboard():
+    current_app.logger.info('POST /dashboard route')
+    dashboard_info = request.json
+    seasonal_trend = listing_info['seasonal_trend']
+    vacancy_rate = listing_info['vacancy_rate']
+    safety_flag = listing_info['safety_flag']
+    demand_forecast = listing_info['demand_forecast']
+    neighborhood = listing_info['neighborhood']
+
+    query = '''
+        INSERT INTO listings (seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood)
+        VALUES (%s, %s, %s, %s, %s)
+    '''
+    data = (seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing added!'))
+    the_response.status_code = 201
+
+    return the_response
+
 # Update an existing dashboard by ID
 @dashboard.route('/dashboard/<int:dashboard_id>', methods=['PUT'])
 def update_dashboard(dashboard_id):
