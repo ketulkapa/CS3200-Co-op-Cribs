@@ -42,11 +42,11 @@ def get_dashboard(dashboard_id):
 def add_dashboard():
     current_app.logger.info('POST /dashboard route')
     dashboard_info = request.json
-    seasonal_trend = listing_info['seasonal_trend']
-    vacancy_rate = listing_info['vacancy_rate']
-    safety_flag = listing_info['safety_flag']
-    demand_forecast = listing_info['demand_forecast']
-    neighborhood = listing_info['neighborhood']
+    seasonal_trend = dashboard_info['seasonal_trend']
+    vacancy_rate = dashboard_info['vacancy_rate']
+    safety_flag = dashboard_info['safety_flag']
+    demand_forecast = dashboard_info['demand_forecast']
+    neighborhood = dashboard_info['neighborhood']
 
     query = '''
         INSERT INTO listings (seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood)
