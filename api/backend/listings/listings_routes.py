@@ -178,3 +178,19 @@ def approve_listing(listing_id):
     the_response = make_response(jsonify('listing approved!'))
     the_response.status_code = 200
     return the_response
+
+# Deny a specific listing
+@listings.route('/listings/deny/<listingID>', methods=['PUT'])
+def deny_listing(listing_id):
+    query = '''
+        UPDATE listings SET verification_status = FALSE WHERE id = %s
+    '''
+    data = (listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing denied!'))
+    the_response.status_code = 200
+    return the_response
