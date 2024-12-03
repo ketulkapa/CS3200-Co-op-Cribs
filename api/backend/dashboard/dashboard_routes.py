@@ -63,4 +63,15 @@ def update_dashboard(dashboard_id):
     response.status_code = 200
     return response
 
+# Delete a dashboard by ID
+@dashboard.route('/neighborhoods/<int:dashboard_id>', methods=['DELETE'])
+def delete_dashboard(dashboard_id):
+    query = 'DELETE FROM dashboard WHERE dashboard_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (dashboard_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Dashboard deleted successfully!'}))
+    response.status_code = 200
+    return response
 
