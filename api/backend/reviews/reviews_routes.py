@@ -78,3 +78,15 @@ def update_review(review_id):
     response = make_response(jsonify({'message': 'Review updated successfully!'}))
     response.status_code = 200
     return response
+
+# Delete a specific review by ID
+@reviews.route('/reviews/<int:review_id>', methods=['DELETE'])
+def delete_review(review_id):
+    query = 'DELETE FROM reviews WHERE review_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (review_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Review deleted successfully!'}))
+    response.status_code = 200
+    return response
