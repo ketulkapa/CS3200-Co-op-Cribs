@@ -68,7 +68,7 @@ def add_listing():
     return the_response
 
 # Get a listing by ID
-@listings.route('listings/<listingID>', methods=['GET'])
+@listings.route('/listings/<listingID>', methods=['GET'])
 def get_listing(listingID):
     cursor = db.get_db().cursor()
     cursor.execute('''
@@ -82,7 +82,7 @@ def get_listing(listingID):
     return the_response
 
 # Update a listing by ID
-@listings.route('listings/<listingID>', methods=['PUT'])
+@listings.route('/listings/<listingID>', methods=['PUT'])
 def update_listing(listing_id):
     current_app.logger.info('PUT /listings/<listingID> route')
     listing_info = request.json
@@ -116,7 +116,7 @@ def update_listing(listing_id):
     return the_response
 
 # Delete a listing by ID
-@listings.route('listings/<listingID>', methods=['DELETE'])
+@listings.route('/listings/<listingID>', methods=['DELETE'])
 def delete_listing(listing_id):
     query = '''
         DELETE FROM listings WHERE id = %s
@@ -160,5 +160,70 @@ def get_new_listings():
     theData = cursor.fetchall()
     
     the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
+
+# Approve a specific listing
+@listings.route('/listings/approve/<listingID>', methods=['PUT'])
+def approve_listing(listing_id):
+    query = '''
+        UPDATE listings SET verification_status = TRUE WHERE id = %s
+    '''
+    data = (listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing approved!'))
+    the_response.status_code = 200
+    return the_response
+
+# Deny a specific listing
+@listings.route('/listings/deny/<listingID>', methods=['PUT'])
+def deny_listing(listing_id):
+    query = '''
+        UPDATE listings SET verification_status = FALSE WHERE id = %s
+    '''
+    data = (listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing denied!'))
+    the_response.status_code = 200
+    return the_response
+
+# Get a listing based on filters
+@listings.route('/listings/filter', methods=['GET'])
+def filter_listings():
+    current_app.logger.info('GET /listings/filter route')
+    listing_info = request.json
+    rent_amount = listing_info['rent_amount']
+    title = listing_info['title']
+    description = listing_info['description']
+    amenities = listing_info['amenities']
+    safety_rating = listing_info['safety_rating']
+    location = listing_info['location']
+    created_by = listing_info['created_by']
+    neighborhood_id = listing_info['neighborhood_id']
+    house_number = listing_info['house_number']
+    street = listing_info['street']
+    city = listing_info['city']
+    zipcode = listing_info['zipcode']
+    verification_status = listing_info['verification_status']
+    timeline = listing_info['timeline']
+
+    query = '''
+        SELECT * FROM listings WHERE rent_amount = %s AND title = %s AND description = %s AND amenities = %s AND safety_rating = %s AND location = %s AND created_by = %s AND neighborhood_id = %s AND house_number = %s AND street = %s AND city = %s AND zipcode = %s AND verification_status = %s AND timeline = %s
+    '''
+    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing filtered!'))
     the_response.status_code = 200
     return the_response
