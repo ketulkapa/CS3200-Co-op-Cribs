@@ -55,3 +55,26 @@ def add_review():
     response.status_code = 201
     return response
 
+# Update a review by ID
+@reviews.route('/reviews/<int:review_id>', methods=['PUT'])
+def update_review(review_id):
+    current_app.logger.info(f'PUT /reviews/{review_id} route')
+    review_info = request.json
+    rating = review_info.get('rating', None)
+    content = review_info.get('content', None)
+    safety_score = review_info.get('safety_score', None)
+
+    query = '''
+        UPDATE reviews
+        SET rating = %s, content = %s, safety_score = %s
+        WHERE review_id = %s
+    '''
+    data = (rating, content, safety_score, review_id)
+    
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Review updated successfully!'}))
+    response.status_code = 200
+    return response
