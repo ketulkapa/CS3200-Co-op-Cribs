@@ -113,6 +113,33 @@ def update_listing(listing_id):
     the_response.status_code = 200
     return the_response
 
+@listings.route('listings/<listingID>', methods=['DELETE'])
+def delete_listing(listing_id):
+    query = '''
+        DELETE FROM listings WHERE id = %s
+    '''
+    data = (listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing deleted!'))
+    the_response.status_code = 200
+    return the_response
+
+@listings.route('/listings/new', methods=['GET'])
+def get_new_listings():
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+                    SELECT * FROM listings WHERE verification_status = 'new'
+    ''')
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
 
 
 # #------------------------------------------------------------
