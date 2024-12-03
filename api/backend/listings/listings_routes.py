@@ -68,7 +68,7 @@ def add_listing():
     return the_response
 
 # Get a listing by ID
-@listings.route('listings/<listingID>', methods=['GET'])
+@listings.route('/listings/<listingID>', methods=['GET'])
 def get_listing(listingID):
     cursor = db.get_db().cursor()
     cursor.execute('''
@@ -82,7 +82,7 @@ def get_listing(listingID):
     return the_response
 
 # Update a listing by ID
-@listings.route('listings/<listingID>', methods=['PUT'])
+@listings.route('/listings/<listingID>', methods=['PUT'])
 def update_listing(listing_id):
     current_app.logger.info('PUT /listings/<listingID> route')
     listing_info = request.json
@@ -116,7 +116,7 @@ def update_listing(listing_id):
     return the_response
 
 # Delete a listing by ID
-@listings.route('listings/<listingID>', methods=['DELETE'])
+@listings.route('/listings/<listingID>', methods=['DELETE'])
 def delete_listing(listing_id):
     query = '''
         DELETE FROM listings WHERE id = %s
