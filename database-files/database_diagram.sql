@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS coopCribs;
 CREATE DATABASE IF NOT EXISTS coopCribs;
 USE coopCribs;
 
@@ -21,8 +22,8 @@ CREATE TABLE IF NOT EXISTS users (
 CREATE TABLE IF NOT EXISTS reviews (
   review_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   rating INTEGER,
-  reviewer_id CHAR(8),
-  reviewee_id CHAR(8),
+  reviewer_id INTEGER,
+  reviewee_id INTEGER,
   date TIMESTAMP,
   content TEXT,
   safety_score INTEGER,
@@ -47,7 +48,7 @@ CREATE TABLE IF NOT EXISTS listings (
   match_score INTEGER,
   safety_rating INTEGER,
   location VARCHAR(255),
-  created_by CHAR(8),
+  created_by INTEGER,
   neighborhood_id INTEGER,
   house_number INTEGER,
   street VARCHAR(255),
@@ -62,8 +63,8 @@ CREATE TABLE IF NOT EXISTS listings (
 CREATE TABLE IF NOT EXISTS message (
   message_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   created_at TIMESTAMP,
-  sender_id CHAR(8),
-  receiver_id CHAR(8),
+  sender_id INTEGER,
+  receiver_id INTEGER,
   content TEXT,
   FOREIGN KEY (sender_id) REFERENCES users(user_id),
   FOREIGN KEY (receiver_id) REFERENCES users(user_id)
@@ -71,8 +72,8 @@ CREATE TABLE IF NOT EXISTS message (
 
 CREATE TABLE IF NOT EXISTS roommateMatches (
   match_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  user1 CHAR(8),
-  user2 CHAR(8),
+  user1 INTEGER,
+  user2 INTEGER,
   compatability_score INTEGER,
   shared_interests VARCHAR(255),
   FOREIGN KEY (user1) REFERENCES users(user_id),
@@ -94,8 +95,8 @@ CREATE TABLE IF NOT EXISTS housingCoordinator (
   first_name VARCHAR(255),
   last_name VARCHAR(255),
   department VARCHAR(255),
-  dashboard_access INTEGER UNIQUE,
-  managed_listings CHAR(8) UNIQUE,
+  dashboard_access INTEGER,
+  managed_listings INTEGER,
   FOREIGN KEY (dashboard_access) REFERENCES analyticsDashboard(dashboard_id),
   FOREIGN KEY (managed_listings) REFERENCES listings(listing_id)
 );
@@ -108,28 +109,28 @@ VALUES
 
 INSERT IGNORE INTO reviews (rating, reviewer_id, reviewee_id, date, content, safety_score)
 VALUES
-(5, 'U000001', 'U000002', '2024-11-01 10:30:00', 'Great roommate, very clean and organized.', 8),
-(4, 'U000002', 'U000001', '2024-11-05 15:45:00', 'Friendly and respectful, highly recommend!', 9);
-
-INSERT IGNORE INTO listings (rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
-VALUES
-(1500, 'Spacious Apartment in Boston', '2-bedroom apartment close to campus', 'WiFi, Heating, Laundry', 85, 7, 'Boston', 'U000001', 1, 123, 'Main Street', 'Boston', 02115, TRUE, 6),
-(1800, 'Cozy Cambridge Studio', 'Studio apartment with great amenities', 'AC, Parking, Gym Access', 78, 8, 'Cambridge', 'U000002', 2, 456, 'Elm Street', 'Cambridge', 02138, FALSE, 3);
+(5, 1, 2, '2024-11-01 10:30:00', 'Great roommate, very clean and organized.', 8),
+(4, 2, 1, '2024-11-05 15:45:00', 'Friendly and respectful, highly recommend!', 9);
 
 INSERT IGNORE INTO message (created_at, sender_id, receiver_id, content)
 VALUES
-('2024-11-30 14:00:00', 'U000001', 'U000002', 'Hey Jane, I’m interested in your apartment listing.'),
-('2024-12-01 09:15:00', 'U000002', 'U000001', 'Hi John, the listing is still available. Let’s connect!');
+('2024-11-30 14:00:00', 1, 2, 'Hey Jane, I’m interested in your apartment listing.'),
+('2024-12-01 09:15:00', 2, 1, 'Hi John, the listing is still available. Let’s connect!');
 
 INSERT IGNORE INTO roommateMatches (user1, user2, compatability_score, shared_interests)
 VALUES
-('U000001', 'U000002', 88, 'Music, Sports'),
-('U000002', 'U000001', 92, 'Reading, Technology');
+(1, 2, 88, 'Music, Sports'),
+(2, 1, 92, 'Reading, Technology');
 
 INSERT IGNORE INTO neighborhoods (name, population_density, safety_travel, insights)
 VALUES
 ('Fenway', 12000, 4, 'Great for students, close to universities. Safe and vibrant area.'),
 ('Back Bay', 8000, 5, 'Upscale area with beautiful architecture and excellent dining options.');
+
+INSERT IGNORE INTO listings (rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+VALUES
+(1500, 'Spacious Apartment in Boston', '2-bedroom apartment close to campus', 'WiFi, Heating, Laundry', 85, 7, 'Boston', 1, 1, 123, 'Main Street', 'Boston', 02115, TRUE, 6),
+(1800, 'Cozy Cambridge Studio', 'Studio apartment with great amenities', 'AC, Parking, Gym Access', 78, 8, 'Cambridge', 2, 2, 456, 'Elm Street', 'Cambridge', 02138, FALSE, 3);
 
 INSERT IGNORE INTO analyticsDashboard (seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood)
 VALUES
@@ -138,5 +139,5 @@ VALUES
 
 INSERT IGNORE INTO housingCoordinator (first_name, last_name, department, dashboard_access, managed_listings)
 VALUES
-('Alice', 'Johnson', 'Housing', 1, 'L000001'),
-('Bob', 'Williams', 'Housing', 2, 'L000002');
+('Alice', 'Johnson', 'Housing', 1, 1),
+('Bob', 'Williams', 'Housing', 2, 2);
