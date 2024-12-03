@@ -56,6 +56,7 @@ def get_personalized_roommate_matches(user_id):
         JOIN users u ON rm.user2 = u.user_id
         WHERE rm.user1 = %s
         ORDER BY rm.compatability_score DESC
+        LIMIT 10
     '''
     
     cursor = db.get_db().cursor(dictionary=True)
@@ -68,5 +69,46 @@ def get_personalized_roommate_matches(user_id):
         return response
 
     response = make_response(jsonify({'matches': matches}))
+    response.status_code = 200
+    return response
+
+@matches.route('/matches/<int:user_id>', methods=['POST'])
+def update_all_compatibility_scores():
+    current_app.logger.info('Updating all compatibility scores in roommateMatches')
+
+    match_query = '''
+        SELECT rm.match_id, rm.user1, rm.user2, 
+               u1.budget AS user1_budget, u1.interests AS user1_interests, u1.preferred_location AS user1_location,
+               u2.budget AS user2_budget, u2.interests AS user2_interests, u2.preferred_location AS user2_location
+        FROM roommateMatches rm
+        JOIN users u1 ON rm.user1 = u1.user_id
+        JOIN users u2 ON rm.user2 = u2.user_id
+    '''
+    cursor = db.get_db().cursor(dictionary=True)
+    cursor.execute(match_query)
+    matches = cursor.fetchall()
+
+    update_query = '''
+        UPDATE roommateMatches 
+        SET compatability_score = %s, shared_interests = %s 
+        WHERE match_id = %s
+    '''
+
+    for match in matches:
+        budget_diff = abs(match['user1_budget'] - match['user2_budget'])
+        budget_score = max(0, 100 - budget_diff) 
+        
+        user1_interests = set(match['user1_interests'].split(', '))
+        user2_interests = set(match['user2_interests'].split(', '))
+        shared_interests = ', '.join(user1_interests.intersection(user2_interests))
+        interest_score = len(user1_interests.intersection(user2_interests)) * 10  
+
+        total_score = budget_score + interest_score
+
+        cursor.execute(update_query, (total_score, shared_interests, match['match_id']))
+
+    db.get_db().commit()
+
+    response = make_response(jsonify({'message': 'Compatibility scores updated successfully!'}))
     response.status_code = 200
     return response
