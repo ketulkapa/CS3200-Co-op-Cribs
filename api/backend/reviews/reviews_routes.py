@@ -30,3 +30,28 @@ def get_reviews(reviewee_id):
     response.status_code = 200
     return response
 
+# Add a review for a subletter after the sublet period ends
+@reviews.route('/reviews', methods=['POST'])
+def add_review():
+    current_app.logger.info('POST /reviews route')
+    review_info = request.json
+    rating = review_info['rating']
+    reviewer_id = review_info['reviewer_id']
+    reviewee_id = review_info['reviewee_id']
+    content = review_info['content']
+    safety_score = review_info['safety_score']
+    
+    query = '''
+        INSERT INTO reviews (rating, reviewer_id, reviewee_id, date, content, safety_score)
+        VALUES (%s, %s, %s, NOW(), %s, %s)
+    '''
+    data = (rating, reviewer_id, reviewee_id, content, safety_score)
+    
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Review added successfully!'}))
+    response.status_code = 201
+    return response
+
