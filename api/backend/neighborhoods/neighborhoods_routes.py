@@ -13,7 +13,7 @@ from backend.ml_models.model01 import predict
 # Create a new Blueprint for neighborhoods
 neighborhoods = Blueprint('neighborhoods', __name__)
 
-# GET: Retrieve all neighborhoods
+# Retrieve all neighborhoods
 @neighborhoods.route('/neighborhoods', methods=['GET'])
 def get_all_neighborhoods():
     cursor = db.get_db().cursor()
@@ -24,7 +24,7 @@ def get_all_neighborhoods():
     return response
 
 
-# POST: Add a new neighborhood
+# Add a new neighborhood
 @neighborhoods.route('/neighborhoods', methods=['POST'])
 def add_neighborhood():
     current_app.logger.info('POST /neighborhoods route')
@@ -47,7 +47,7 @@ def add_neighborhood():
     response.status_code = 201
     return response
 
-# PUT: Update an existing neighborhood by ID
+# Update an existing neighborhood by ID
 @neighborhoods.route('/neighborhoods/<int:neighborhood_id>', methods=['PUT'])
 def update_neighborhood(neighborhood_id):
     current_app.logger.info(f'PUT /neighborhoods/{neighborhood_id} route')
@@ -69,5 +69,17 @@ def update_neighborhood(neighborhood_id):
     db.get_db().commit()
 
     response = make_response(jsonify({'message': 'Neighborhood updated successfully!'}))
+    response.status_code = 200
+    return response
+
+# Delete a neighborhood by ID
+@neighborhoods.route('/neighborhoods/<int:neighborhood_id>', methods=['DELETE'])
+def delete_neighborhood(neighborhood_id):
+    query = 'DELETE FROM neighborhoods WHERE neighborhood_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (neighborhood_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Neighborhood deleted successfully!'}))
     response.status_code = 200
     return response
