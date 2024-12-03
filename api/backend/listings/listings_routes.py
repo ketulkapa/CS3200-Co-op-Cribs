@@ -36,10 +36,38 @@ def get_listings():
 def add_listing():
     current_app.logger.info('PUT /listings route')
     listing_info = request.json
-    listing_
+    rent_amount = listing_info['rent_amount']
+    title = listing_info['title']
+    description = listing_info['description']
+    amenities = listing_info['amenities']
+    safety_rating = listing_info['safety_rating']
+    location = listing_info['location']
+    created_by = listing_info['created_by']
+    neighborhood_id = listing_info['neighborhood_id']
+    house_number = listing_info['house_number']
+    street = listing_info['street']
+    city = listing_info['city']
+    zipcode = listing_info['zipcode']
+    verification_status = listing_info['verification_status']
+    timeline = listing_info['timeline']
+
+    query = '''
+        INSERT INTO listings (rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+    '''
+    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing added!'))
+    the_response.status_code = 201
+
+    return the_response
 
 
-@listings.route('listing/<listingID>', methods=['GET'])
+@listings.route('listings/<listingID>', methods=['GET'])
 def get_listing(listingID):
     cursor = db.get_db().cursor()
     cursor.execute('''
@@ -51,6 +79,42 @@ def get_listing(listingID):
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     return the_response
+
+@listings.route('listings/<listingID>', methods=['PUT'])
+def update_listing(listing_id):
+    current_app.logger.info('PUT /listings/<listingID> route')
+    listing_info = request.json
+    rent_amount = listing_info['rent_amount']
+    title = listing_info['title']
+    description = listing_info['description']
+    amenities = listing_info['amenities']
+    safety_rating = listing_info['safety_rating']
+    location = listing_info['location']
+    created_by = listing_info['created_by']
+    neighborhood_id = listing_info['neighborhood_id']
+    house_number = listing_info['house_number']
+    street = listing_info['street']
+    city = listing_info['city']
+    zipcode = listing_info['zipcode']
+    verification_status = listing_info['verification_status']
+    timeline = listing_info['timeline']
+
+    query = '''
+        UPDATE listings SET rent_amount = %s, title = %s, description = %s, amenities = %s, safety_rating = %s, location = %s, created_by = %s, neighborhood_id = %s, house_number = %s, street = %s, city = %s, zipcode = %s, verification_status = %s, timeline = %s
+        WHERE id = %s
+    '''
+    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline, listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing updated!'))
+    the_response.status_code = 200
+    return the_response
+
+
+
 # #------------------------------------------------------------
 # # Update customer info for customer with particular userID
 # #   Notice the manner of constructing the query.
