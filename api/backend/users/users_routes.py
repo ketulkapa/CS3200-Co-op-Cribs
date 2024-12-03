@@ -111,3 +111,16 @@ def update_user(user_id):
     the_response = make_response(jsonify('User updated!'))
     the_response.status_code = 200
     return the_response
+
+# Delete a user by ID
+@users.route('/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    query = 'DELETE FROM users WHERE user_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (user_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'User deleted successfully!'}))
+    response.status_code = 200
+    return response
+
