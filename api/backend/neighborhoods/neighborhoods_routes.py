@@ -46,3 +46,28 @@ def add_neighborhood():
     response = make_response(jsonify({'message': 'Neighborhood added successfully!'}))
     response.status_code = 201
     return response
+
+# PUT: Update an existing neighborhood by ID
+@neighborhoods.route('/neighborhoods/<int:neighborhood_id>', methods=['PUT'])
+def update_neighborhood(neighborhood_id):
+    current_app.logger.info(f'PUT /neighborhoods/{neighborhood_id} route')
+    neighborhood_info = request.json
+    name = neighborhood_info.get('name', None)
+    population_density = neighborhood_info.get('population_density', None)
+    safety_travel = neighborhood_info.get('safety_travel', None)
+    insights = neighborhood_info.get('insights', None)
+    
+    query = '''
+        UPDATE neighborhoods
+        SET name = %s, population_density = %s, safety_travel = %s, insights = %s
+        WHERE neighborhood_id = %s
+    '''
+
+    data = (name, population_density, safety_travel, insights, neighborhood_id)
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    response = make_response(jsonify({'message': 'Neighborhood updated successfully!'}))
+    response.status_code = 200
+    return response
