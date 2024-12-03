@@ -162,3 +162,19 @@ def get_new_listings():
     the_response = make_response(jsonify(theData))
     the_response.status_code = 200
     return the_response
+
+# Approve a specific listing
+@listings.route('/listings/approve/<listingID>', methods=['PUT'])
+def approve_listing(listing_id):
+    query = '''
+        UPDATE listings SET verification_status = TRUE WHERE id = %s
+    '''
+    data = (listing_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('listing approved!'))
+    the_response.status_code = 200
+    return the_response
