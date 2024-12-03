@@ -64,7 +64,7 @@ def update_dashboard(dashboard_id):
     return response
 
 # Delete a dashboard by ID
-@dashboard.route('/neighborhoods/<int:dashboard_id>', methods=['DELETE'])
+@dashboard.route('/dashboard/<int:dashboard_id>', methods=['DELETE'])
 def delete_dashboard(dashboard_id):
     query = 'DELETE FROM dashboard WHERE dashboard_id = %s'
     cursor = db.get_db().cursor()
