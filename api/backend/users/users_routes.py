@@ -26,20 +26,28 @@ def add_user():
     name = user_info['name']
     role = user_info.get('role', None)
     phone_number = user_info.get('phone_number', None)
+    coop_timeline = user_info.get('coop_timeline', None)
+    budget = user_info.get('budget', None)
+    housing_status = user_info.get('housing_status', None)
     first_name = user_info.get('first_name', None)
     last_name = user_info.get('last_name', None)
     email = user_info.get('email', None)
+    urgency = user_info.get('urgency', None)
+    interests = user_info.get('interests', None)
+    university = user_info.get('university', None)
+    age = user_info.get('age', None)
+    preferred_location = user_info.get('preferred_location', None)
     
     query = '''
-        INSERT INTO neighborhoods (name, population_density, safety_travel, insights)
-        VALUES (%s, %s, %s, %s)
+        INSERT INTO users (name, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location)
+        VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     '''
-    data = (name, population_density, safety_travel, insights)
+    data = (name, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location)
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
     db.get_db().commit()
     
-    response = make_response(jsonify({'message': 'Neighborhood added successfully!'}))
+    response = make_response(jsonify({'message': 'User added successfully!'}))
     response.status_code = 201
     return response
 
