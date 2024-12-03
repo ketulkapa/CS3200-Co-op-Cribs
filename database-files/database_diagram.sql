@@ -5,12 +5,12 @@ USE coopCribs;
 CREATE TABLE IF NOT EXISTS users (
   user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   role VARCHAR(100) NOT NULL,
-  phone_number CHAR(20),
+  phone_number CHAR(20) NOT NULL,
   coop_timeline VARCHAR(255),
   budget VARCHAR(255),
   housing_status VARCHAR(255),
-  first_name VARCHAR(100),
-  last_name VARCHAR(100),
+  first_name VARCHAR(100) NOT NULL,
+  last_name VARCHAR(100) NOT NULL,
   email VARCHAR(100) NOT NULL,
   urgency VARCHAR(100),
   interests TEXT,
@@ -21,9 +21,9 @@ CREATE TABLE IF NOT EXISTS users (
 
 CREATE TABLE IF NOT EXISTS reviews (
   review_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  rating INTEGER,
-  reviewer_id INTEGER,
-  reviewee_id INTEGER,
+  rating INTEGER NOT NULL ,
+  reviewer_id INTEGER NOT NULL,
+  reviewee_id INTEGER NOT NULL,
   date TIMESTAMP,
   content TEXT,
   safety_score INTEGER,
@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS reviews (
 
 CREATE TABLE IF NOT EXISTS neighborhoods (
   neighborhood_id INTEGER PRIMARY KEY auto_increment,
-  name VARCHAR(255),
+  name VARCHAR(255) NOT NULL ,
   population_density INTEGER,
   safety_travel INTEGER,
   insights TEXT
@@ -41,20 +41,20 @@ CREATE TABLE IF NOT EXISTS neighborhoods (
 
 CREATE TABLE IF NOT EXISTS listings (
   listing_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  rent_amount INTEGER,
-  title VARCHAR(255),
+  rent_amount INTEGER NOT NULL,
+  title VARCHAR(255) NOT NULL,
   description TEXT,
   amenities TEXT,
   match_score INTEGER,
   safety_rating INTEGER,
-  location VARCHAR(255),
+  location VARCHAR(255) NOT NULL,
   created_by INTEGER,
   neighborhood_id INTEGER,
-  house_number INTEGER,
-  street VARCHAR(255),
-  city VARCHAR(255),
-  zipcode INTEGER,
-  verification_status BOOLEAN,
+  house_number INTEGER NOT NULL,
+  street VARCHAR(255) NOT NULL,
+  city VARCHAR(255) NOT NULL,
+  zipcode INTEGER NOT NULL,
+  verification_status BOOLEAN NOT NULL,
   timeline INTEGER,
   FOREIGN KEY (created_by) REFERENCES users(user_id),
   FOREIGN KEY (neighborhood_id) REFERENCES neighborhoods(neighborhood_id)
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS message (
   created_at TIMESTAMP,
   sender_id INTEGER,
   receiver_id INTEGER,
-  content TEXT,
+  content TEXT NOT NULL,
   FOREIGN KEY (sender_id) REFERENCES users(user_id),
   FOREIGN KEY (receiver_id) REFERENCES users(user_id)
 );
@@ -82,23 +82,37 @@ CREATE TABLE IF NOT EXISTS roommateMatches (
 
 CREATE TABLE IF NOT EXISTS analyticsDashboard (
   dashboard_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  seasonal_trend VARCHAR(255),
+  seasonal_trend VARCHAR(255) ,
   vacancy_rate INTEGER,
   safety_flag VARCHAR(255),
   demand_forecast VARCHAR(255),
-  neighborhood INTEGER,
+  neighborhood INTEGER ,
   FOREIGN KEY (neighborhood) REFERENCES neighborhoods(neighborhood_id)
 );
 
 CREATE TABLE IF NOT EXISTS housingCoordinator (
   coordinator_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  first_name VARCHAR(255),
-  last_name VARCHAR(255),
-  department VARCHAR(255),
-  dashboard_access INTEGER,
+  first_name VARCHAR(255) NOT NULL,
+  last_name VARCHAR(255) NOT NULL,
+  department VARCHAR(255) NOT NULL,
   managed_listings INTEGER,
-  FOREIGN KEY (dashboard_access) REFERENCES analyticsDashboard(dashboard_id),
   FOREIGN KEY (managed_listings) REFERENCES listings(listing_id)
+);
+
+CREATE TABLE IF NOT EXISTS coordinatorDashboardAccess (
+    coordinator_id INTEGER,
+    dashboard_id INTEGER,
+    PRIMARY KEY (coordinator_id, dashboard_id),
+    FOREIGN KEY (coordinator_id) REFERENCES housingCoordinator(coordinator_id),
+    FOREIGN KEY (dashboard_id) REFERENCES analyticsDashboard(dashboard_id)
+);
+
+CREATE TABLE IF NOT EXISTS coordinatorManagedListings (
+    coordinator_id INTEGER,
+    listing_id INTEGER,
+    PRIMARY KEY (coordinator_id, listing_id),
+    FOREIGN KEY (coordinator_id) REFERENCES housingCoordinator(coordinator_id),
+    FOREIGN KEY (coordinator_id) REFERENCES listings(listing_id)
 );
 
 
@@ -137,7 +151,17 @@ VALUES
 ('Fall', 5, 'Green', 'High', 1),
 ('Winter', 3, 'Yellow', 'Medium', 2);
 
-INSERT IGNORE INTO housingCoordinator (first_name, last_name, department, dashboard_access, managed_listings)
+INSERT IGNORE INTO housingCoordinator (first_name, last_name, department)
 VALUES
-('Alice', 'Johnson', 'Housing', 1, 1),
-('Bob', 'Williams', 'Housing', 2, 2);
+('Alice', 'Johnson', 'Housing'),
+('Bob', 'Williams', 'Housing');
+
+INSERT IGNORE INTO coordinatorDashboardAccess (coordinator_id, dashboard_id)
+VALUES
+    (1, 1),
+    (1, 2);
+
+INSERT INTO coordinatorManagedListings (coordinator_id, listing_id)
+VALUES
+    (1, 1),
+    (1, 2);
