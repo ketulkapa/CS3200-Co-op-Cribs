@@ -60,3 +60,17 @@ def get_all_students():
     response = make_response(jsonify(data))
     response.status_code = 200
     return response
+
+# Retrieves specific information about a user
+@users.route('users/<userID>', methods=['GET'])
+def get_user(userID):
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+                    SELECT * FROM users WHERE id = {0}
+    '''.format(userID))
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
