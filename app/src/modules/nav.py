@@ -14,21 +14,23 @@ def AboutPageNav():
     st.sidebar.page_link("pages/30_About.py", label="About", icon="🧠")
 
 
-#### ------------------------ Examples for Role of pol_strat_advisor ------------------------
-def PolStratAdvHomeNav():
+#### ------------------------ Examples for Role of housing coordinator ------------------------
+def HousingCoordHomeNav():
     st.sidebar.page_link(
-        "pages/00_Pol_Strat_Home.py", label="Political Strategist Home", icon="👤"
+        "pages/00_housing_coordinator_home.py", label="Housing Coordinator Home", icon="🏠"
     )
 
 
-def WorldBankVizNav():
+def HousingDashboardsNav():
     st.sidebar.page_link(
-        "pages/01_World_Bank_Viz.py", label="World Bank Visualization", icon="🏦"
+        "pages/01_View_Dashboards.py", label="Dashboards", icon="📈"
     )
 
 
-def MapDemoNav():
-    st.sidebar.page_link("pages/02_Map_Demo.py", label="Map Demonstration", icon="🗺️")
+def HousingUserNav():
+    st.sidebar.page_link(
+        "pages/02_View_Users.py", label="Users", icon="👤"
+    )
 
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
@@ -78,10 +80,10 @@ def SideBarLinks(show_home=False):
     if st.session_state["authenticated"]:
 
         # Show World Bank Link and Map Demo Link if the user is a political strategy advisor role.
-        if st.session_state["role"] == "pol_strat_advisor":
-            PolStratAdvHomeNav()
-            WorldBankVizNav()
-            MapDemoNav()
+        if st.session_state["role"] == "housing_coordinator":
+            HousingCoordHomeNav()
+            HousingDashboardsNav()
+            HousingUserNav()
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "usaid_worker":
