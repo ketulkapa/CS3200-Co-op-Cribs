@@ -6,6 +6,7 @@ import pandas as pd
 import pydeck as pdk
 from urllib.error import URLError
 from modules.nav import SideBarLinks
+import requests
 
 SideBarLinks()
 
@@ -28,3 +29,9 @@ def get_users(api_url):
         return []
     
 api_url = "http://web-api:4000/u/users"
+users = get_users(api_url)
+if users:
+    df = pd.DataFrame(users)
+    st.dataframe(df)
+else:
+    st.write("No users available.")
