@@ -60,3 +60,67 @@ def get_all_students():
     response = make_response(jsonify(data))
     response.status_code = 200
     return response
+
+# Retrieves specific information about a user
+@users.route('users/<userID>', methods=['GET'])
+def get_user(userID):
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+                    SELECT * FROM users WHERE id = {0}
+    '''.format(userID))
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
+
+# Update a user by ID
+@users.route('users/<userID>', methods=['PUT'])
+def update_user(user_id):
+    current_app.logger.info('PUT /user/<userID> route')
+    user_info = request.json
+    role = user_info['role']
+    phone_number = user_info['phone_number']
+    coop_timeline = user_info['coop_timeline']
+    budget = user_info['budget']
+    housing_status = user_info['housing_status']
+    first_name = user_info['first_name']
+    last_name = user_info['last_name']
+    email = user_info['email']
+    urgency = user_info['urgency']
+    interests = user_info['interests']
+    university = user_info['university']
+    age = user_info['age']
+    preferred_location = user_info['preferred_location']
+
+    query = '''
+        UPDATE users 
+        SET role = %s, phone_number = %s, coop_timeline = %s, budget = %s, housing_status = %s, 
+            first_name = %s, last_name = %s, email = %s, urgency = %s, interests = %s, 
+            university = %s, age = %s, preferred_location = %s
+        WHERE user_id = %s
+    '''
+    data = (role, phone_number, coop_timeline, budget, housing_status, first_name, 
+            last_name, email, urgency, interests, university, age, preferred_location, user_id)
+
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    the_response = make_response(jsonify('User updated!'))
+    the_response.status_code = 200
+    return the_response
+
+# Delete a user by ID
+@users.route('/users/<int:user_id>', methods=['DELETE'])
+def delete_user(user_id):
+    query = 'DELETE FROM users WHERE user_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (user_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'User deleted successfully!'}))
+    response.status_code = 200
+    return response
+
