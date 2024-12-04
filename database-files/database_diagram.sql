@@ -152,3 +152,13 @@ INSERT IGNORE INTO housingCoordinator (first_name, last_name, department)
 VALUES
 ('Alice', 'Johnson', 'Housing'),
 ('Bob', 'Williams', 'Housing');
+
+INSERT IGNORE INTO coordinatorDashboardAccess (coordinator_id, dashboard_id)
+VALUES
+    (1, 1),
+    (1, 2);
+
+INSERT INTO coordinatorManagedListings (coordinator_id, listing_id)
+VALUES
+    (1, 1),
+    (1, 2);
