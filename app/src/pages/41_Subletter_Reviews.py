@@ -23,7 +23,7 @@ reviewee_id = st.text_input("Enter the Reviewee ID:", value="")
 if st.button("Get Reviews"):
     if reviewee_id.strip():
         try:
-            api_url = f'http://localhost:4000/reviews/{reviewee_id}'
+            api_url = f'http://web-api:4000/r/reviews/{reviewee_id}'
             response = requests.get(api_url)
             
             if response.status_code == 200:
