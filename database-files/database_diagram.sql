@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS listings (
 
 CREATE TABLE IF NOT EXISTS message (
   message_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  created_at TIMESTAMP,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,,
   sender_id INTEGER,
   receiver_id INTEGER,
   content TEXT NOT NULL,
