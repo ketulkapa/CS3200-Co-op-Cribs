@@ -75,3 +75,15 @@ def update_event(event_id):
     response = make_response(jsonify({'message': 'Event updated successfully!'}))
     response.status_code = 200
     return response
+
+# Delete an event by ID
+@events.route('/events/<int:event_id>', methods=['DELETE'])
+def delete_events(event_id):
+    query = 'DELETE FROM events WHERE event_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (event_id,))
+    db.get_db().commit()
+    
+    response = make_response(jsonify({'message': 'Event deleted successfully!'}))
+    response.status_code = 200
+    return response
