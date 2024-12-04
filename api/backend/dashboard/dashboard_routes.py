@@ -23,6 +23,23 @@ def get_all_dashboard():
     response.status_code = 200
     return response
 
+# Retrieve all dashboards available to a specific coordinator
+@dashboard.route('/dashboard/coordinator/<coordinator_id>', methods=['GET'])
+def get_coordinator_dashboards(coordinator_id):
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+                    SELECT seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood 
+                   FROM coordinatorDashboardAccess JOIN analyticsDashboard 
+                   ON coordinatorDashboardAccess.dashboard_id = analyticsDashboard.dashboard_id
+WHERE coordinator_id = {0}
+    '''.format(coordinator_id))
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
+
 # Get a dashboard by ID
 @dashboard.route('dashboard/<int:dashboard_id>', methods=['GET'])
 def get_dashboard(dashboard_id):

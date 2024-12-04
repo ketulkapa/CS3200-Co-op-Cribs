@@ -6,6 +6,7 @@ from backend.neighborhoods.neighborhoods_routes import neighborhoods
 from backend.products.products_routes import products
 from backend.reviews.reviews_routes import reviews
 from backend.simple.simple_routes import simple_routes
+from backend.dashboard.dashboard_routes import dashboard
 import os
 from dotenv import load_dotenv
 
@@ -46,6 +47,7 @@ def create_app():
     app.register_blueprint(neighborhoods,   url_prefix='/n')
     app.register_blueprint(products,    url_prefix='/p')
     app.register_blueprint(reviews,     url_prefix='/r')
+    app.register_blueprint(dashboard,   url_prefix='/d')
 
     # Don't forget to return the app object
     return app
