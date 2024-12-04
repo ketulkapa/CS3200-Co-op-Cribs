@@ -102,22 +102,6 @@ CREATE TABLE IF NOT EXISTS housingCoordinator (
   FOREIGN KEY (managed_listings) REFERENCES listings(listing_id)
 );
 
-CREATE TABLE IF NOT EXISTS coordinatorDashboardAccess (
-    coordinator_id INTEGER,
-    dashboard_id INTEGER,
-    PRIMARY KEY (coordinator_id, dashboard_id),
-    FOREIGN KEY (coordinator_id) REFERENCES housingCoordinator(coordinator_id),
-    FOREIGN KEY (dashboard_id) REFERENCES analyticsDashboard(dashboard_id)
-);
-
-CREATE TABLE IF NOT EXISTS coordinatorManagedListings (
-    coordinator_id INTEGER,
-    listing_id INTEGER,
-    PRIMARY KEY (coordinator_id, listing_id),
-    FOREIGN KEY (coordinator_id) REFERENCES housingCoordinator(coordinator_id),
-    FOREIGN KEY (coordinator_id) REFERENCES listings(listing_id)
-);
-
 CREATE TABLE IF NOT EXISTS events (
     events_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name TEXT NOT NULL,               -- Name of the event
@@ -168,13 +152,3 @@ INSERT IGNORE INTO housingCoordinator (first_name, last_name, department)
 VALUES
 ('Alice', 'Johnson', 'Housing'),
 ('Bob', 'Williams', 'Housing');
-
-INSERT IGNORE INTO coordinatorDashboardAccess (coordinator_id, dashboard_id)
-VALUES
-    (1, 1),
-    (1, 2);
-
-INSERT INTO coordinatorManagedListings (coordinator_id, listing_id)
-VALUES
-    (1, 1),
-    (1, 2);

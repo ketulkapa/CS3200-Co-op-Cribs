@@ -31,7 +31,7 @@ def get_dashboards(api_url):
         logger.error(f"Error fetching dashboards: {e}")
         return []
 
-api_url = "http://web-api:4000/d/dashboard/coordinator/1"
+api_url = "http://web-api:4000/d/dashboard"
 dashboards = get_dashboards(api_url)
 if dashboards:
     df = pd.DataFrame(dashboards)
