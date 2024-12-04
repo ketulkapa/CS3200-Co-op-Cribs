@@ -30,3 +30,28 @@ def create_message():
     response = make_response(jsonify({'message': 'Message created successfully!'}))
     response.status_code = 201
     return response
+
+# Get messages for a specific user (GET)
+@messages.route('/messages/<int:user_id>', methods=['GET'])
+def get_messages_for_user(user_id):
+    current_app.logger.info(f'GET /messages/{user_id} route')
+
+    query = '''
+        SELECT m.message_id, m.sender_id, m.receiver_id, m.content, m.created_at
+        FROM message m
+        WHERE m.receiver_id = %s AND m.sender_id = %s
+        ORDER BY m.created_at DESC
+    '''
+    
+    cursor = db.get_db().cursor(dictionary=True)
+    cursor.execute(query, (user_id, user_id))
+    messages = cursor.fetchall()
+
+    if not messages:
+        response = make_response(jsonify({'message': 'No messages found for the user.'}))
+        response.status_code = 404
+        return response
+
+    response = make_response(jsonify({'messages': messages}))
+    response.status_code = 200
+    return response
