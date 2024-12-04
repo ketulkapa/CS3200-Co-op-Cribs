@@ -77,3 +77,17 @@ def update_message(message_id):
     response = make_response(jsonify({'message': 'Message updated successfully!'}))
     response.status_code = 200
     return response
+
+# Delete a specific message (DELETE)
+@messages.route('/messages/<int:message_id>', methods=['DELETE'])
+def delete_message(message_id):
+    current_app.logger.info(f'DELETE /messages/{message_id} route')
+
+    query = 'DELETE FROM message WHERE message_id = %s'
+    cursor = db.get_db().cursor()
+    cursor.execute(query, (message_id,))
+    db.get_db().commit()
+
+    response = make_response(jsonify({'message': 'Message deleted successfully!'}))
+    response.status_code = 200
+    return response
