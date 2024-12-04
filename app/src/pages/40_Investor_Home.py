@@ -19,7 +19,12 @@ if st.button('View Reviews For Subletter',
              use_container_width=True):
   st.switch_page('pages/41_Subletter_Reviews.py')
 
-if st.button('View World Map Demo', 
+if st.button('Message User', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/02_Map_Demo.py')
+  st.switch_page('Home.py') # Change to messaging page
+
+if st.button('View Analytics', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/42_Investor_Analytics.py')

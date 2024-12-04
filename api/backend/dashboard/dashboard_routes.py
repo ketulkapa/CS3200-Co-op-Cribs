@@ -37,6 +37,16 @@ def get_dashboard(dashboard_id):
     the_response.status_code = 200
     return the_response
 
+# Get all analytics dashboards
+@dashboard.route('/dashboard/analytics', methods=['GET'])
+def get_all_dashboard():
+    cursor = db.get_db().cursor()
+    cursor.execute('SELECT * FROM analyticsDashboard')
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+
 # Add a new dashboard
 @dashboard.route('dashboard/<int:dashboard_id>', methods=['POST'])
 def add_dashboard():
