@@ -118,6 +118,18 @@ CREATE TABLE IF NOT EXISTS coordinatorManagedListings (
     FOREIGN KEY (coordinator_id) REFERENCES listings(listing_id)
 );
 
+CREATE TABLE IF NOT EXISTS events (
+    events_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,               -- Name of the event
+    event_date TEXT NOT NULL,         -- Date and time of the event
+    loc TEXT NOT NULL,                -- Location of the event
+    description TEXT,                 -- A description of the event
+    target_audience TEXT,            -- Target audience (e.g., Northeastern students, co-op workers)
+    event_host TEXT,                  -- Organizer/Host of the event
+    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Timestamp for when the event was created
+    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP   -- Timestamp for when the event was last updated
+);
+
 
 INSERT IGNORE INTO users (role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location)
 VALUES
