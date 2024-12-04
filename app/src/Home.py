@@ -55,7 +55,7 @@ if st.button("Act as Elizabeth, a housing coordinator",
     # finally, we ask streamlit to switch to another page, in this case, the 
     # landing page for this particular user type
     logger.info("Logging in as Housing Coordinator Persona")
-    st.switch_page('pages/00_Pol_Strat_Home.py')
+    st.switch_page('pages/00_housing_coordinator_home.py')
 
 if st.button('Act as Leah, a student with an offer in San Francisco', 
             type = 'primary', 
