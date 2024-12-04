@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS listings (
 
 CREATE TABLE IF NOT EXISTS message (
   message_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,,
+  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
   sender_id INTEGER,
   receiver_id INTEGER,
   content TEXT NOT NULL,
@@ -126,8 +126,6 @@ CREATE TABLE IF NOT EXISTS events (
     description TEXT,                 -- A description of the event
     target_audience TEXT,            -- Target audience (e.g., Northeastern students, co-op workers)
     event_host TEXT,                  -- Organizer/Host of the event
-    created_at DATETIME DEFAULT CURRENT_TIMESTAMP,  -- Timestamp for when the event was created
-    updated_at DATETIME DEFAULT CURRENT_TIMESTAMP   -- Timestamp for when the event was last updated
 );
 
 
