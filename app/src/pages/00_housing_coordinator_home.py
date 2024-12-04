@@ -19,6 +19,11 @@ if st.button('View Dashboards',
              use_container_width=True):
   st.switch_page('pages/01_View_Dashboards.py')
 
+if st.button('View All Users', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/02_View_Users.py')
+
 if st.button('Update a Listing',
              type='primary',
              use_container_width=True):
@@ -28,11 +33,6 @@ if st.button('Delete a Listing',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/04_Delete_Listing.py')
-
-if st.button('View All Users', 
-             type='primary',
-             use_container_width=True):
-  st.switch_page('pages/02_View_Users.py')
 
 if st.button('View All Recently Posted Listings',
              type='primary',
