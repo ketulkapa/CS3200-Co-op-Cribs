@@ -119,13 +119,13 @@ CREATE TABLE IF NOT EXISTS coordinatorManagedListings (
 );
 
 CREATE TABLE IF NOT EXISTS events (
-    events_id INTEGER PRIMARY KEY AUTOINCREMENT,
+    events_id INTEGER PRIMARY KEY AUTO_INCREMENT,
     name TEXT NOT NULL,               -- Name of the event
     event_date TEXT NOT NULL,         -- Date and time of the event
     loc TEXT NOT NULL,                -- Location of the event
     description TEXT,                 -- A description of the event
     target_audience TEXT,            -- Target audience (e.g., Northeastern students, co-op workers)
-    event_host TEXT,                  -- Organizer/Host of the event
+    event_host TEXT                 -- Organizer/Host of the event
 );
 
 
