@@ -55,3 +55,25 @@ def get_messages_for_user(user_id):
     response = make_response(jsonify({'messages': messages}))
     response.status_code = 200
     return response
+
+# Update a specific message (PUT)
+@messages.route('/messages/<int:message_id>', methods=['PUT'])
+def update_message(message_id):
+    current_app.logger.info(f'PUT /messages/{message_id} route')
+    message_info = request.json
+    content = message_info.get('content', None)
+
+    query = '''
+        UPDATE message
+        SET content = %s
+        WHERE message_id = %s
+    '''
+    data = (content, message_id)
+    
+    cursor = db.get_db().cursor()
+    cursor.execute(query, data)
+    db.get_db().commit()
+
+    response = make_response(jsonify({'message': 'Message updated successfully!'}))
+    response.status_code = 200
+    return response
