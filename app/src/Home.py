@@ -79,6 +79,6 @@ if st.button('Act as Sanay, a real estate investor',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'investor'
     st.session_state['first_name'] = 'Sanay'
-    st.switch_page('pages/20_Admin_Home.py')
+    st.switch_page('pages/40_Investor_Home.py')
 
 
