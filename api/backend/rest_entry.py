@@ -8,6 +8,7 @@ from backend.reviews.reviews_routes import reviews
 from backend.simple.simple_routes import simple_routes
 from backend.dashboard.dashboard_routes import dashboard
 from backend.users.users_routes import users
+from backend.messages.messages_routes import messages
 import os
 from dotenv import load_dotenv
 
@@ -50,6 +51,7 @@ def create_app():
     app.register_blueprint(reviews,     url_prefix='/r')
     app.register_blueprint(dashboard,   url_prefix='/d')
     app.register_blueprint(users,       url_prefix='/u')
+    app.register_blueprint(messages,   url_prefix='/m')
 
     # Don't forget to return the app object
     return app

@@ -152,3 +152,18 @@ INSERT IGNORE INTO housingCoordinator (first_name, last_name, department)
 VALUES
 ('Alice', 'Johnson', 'Housing'),
 ('Bob', 'Williams', 'Housing');
+
+INSERT IGNORE INTO coordinatorDashboardAccess (coordinator_id, dashboard_id)
+VALUES
+    (1, 1),
+    (1, 2);
+
+INSERT INTO coordinatorManagedListings (coordinator_id, listing_id)
+VALUES
+    (1, 1),
+    (1, 2);
+
+INSERT INTO events (name, event_date, loc, description, target_audience, event_host)
+VALUES
+('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
+('Co-op Opportunities Info Session', '2024-12-15 14:00:00', 'Northeastern University, Boston', 'An informational session for students looking to learn about upcoming co-op opportunities for Spring 2025.', 'Northeastern students', 'Northeastern University'),

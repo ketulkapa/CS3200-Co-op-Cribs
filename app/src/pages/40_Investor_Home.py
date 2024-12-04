@@ -22,7 +22,7 @@ if st.button('View Reviews For Subletter',
 if st.button('Message User', 
              type='primary',
              use_container_width=True):
-  st.switch_page('Home.py') # Change to messaging page
+  st.switch_page('pages/43_Messaging.py')
 
 if st.button('View Analytics', 
              type='primary',

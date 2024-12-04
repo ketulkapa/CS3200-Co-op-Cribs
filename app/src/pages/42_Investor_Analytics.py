@@ -19,7 +19,7 @@ Find analytics regarding seasonal trends and vacancy rates.
 # Button to trigger API request
 try:
     # Replace with the actual API URL for your environment
-    api_url = 'http://api:4000/dashboard'
+    api_url = 'http://api:4000/d/dashboard'
     response = requests.get(api_url)
         
     if response.status_code == 200:
