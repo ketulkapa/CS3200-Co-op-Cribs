@@ -97,7 +97,7 @@ When you open this page on the side bar as well as on the investor dashboard pag
 - Logout: Log out of the current session.
 
 ## Settled 
-Once you are finally settled with your match or updated your listing and it is time to close the webpage, dont forget to 'docker compose down' to shutdown and delete the containers. 
+Once you are finally settled with your match or updated your listing and it is time to close the webpage, dont forget to 'docker compose down' to shutdown and stop the containers. 
 
 ### Demo walk through: 
 
