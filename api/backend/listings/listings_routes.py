@@ -72,18 +72,23 @@ def add_listing():
 def get_listing(listingID):
     cursor = db.get_db().cursor()
     cursor.execute('''
-                    SELECT * FROM listings WHERE listing_id = {0}
-    '''.format(listingID))
+                    SELECT * FROM listings WHERE listing_id = %s
+    ''', (listingID,))
     
     theData = cursor.fetchall()
     
-    the_response = make_response(jsonify(theData))
-    the_response.status_code = 200
+    if theData:
+        the_response = make_response(jsonify(theData))
+        the_response.status_code = 200
+    else:
+        the_response = make_response(jsonify({'error': 'Listing not found'}))
+        the_response.status_code = 404
+    
     return the_response
 
 # Update a listing by ID
 @listings.route('/listings/<listingID>', methods=['PUT'])
-def update_listing(listing_id):
+def update_listing(listingID):
     current_app.logger.info('PUT /listings/<listingID> route')
     listing_info = request.json
     rent_amount = listing_info['rent_amount']
@@ -92,7 +97,6 @@ def update_listing(listing_id):
     amenities = listing_info['amenities']
     safety_rating = listing_info['safety_rating']
     location = listing_info['location']
-    created_by = listing_info['created_by']
     neighborhood_id = listing_info['neighborhood_id']
     house_number = listing_info['house_number']
     street = listing_info['street']
@@ -102,10 +106,10 @@ def update_listing(listing_id):
     timeline = listing_info['timeline']
 
     query = '''
-        UPDATE listings SET rent_amount = %s, title = %s, description = %s, amenities = %s, safety_rating = %s, location = %s, created_by = %s, neighborhood_id = %s, house_number = %s, street = %s, city = %s, zipcode = %s, verification_status = %s, timeline = %s
-        WHERE id = %s
+        UPDATE listings SET rent_amount = %s, title = %s, description = %s, amenities = %s, safety_rating = %s, location = %s, neighborhood_id = %s, house_number = %s, street = %s, city = %s, zipcode = %s, verification_status = %s, timeline = %s
+        WHERE listing_id = %s
     '''
-    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline, listing_id)
+    data = (rent_amount, title, description, amenities, safety_rating, location, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline, listingID)
 
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
