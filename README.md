@@ -41,6 +41,9 @@ An international student with a co-op offer in New York City. This user may have
 
 4. Sanay, a Real Estate Investor:
 A real estate investor looking for opportunities in the student housing market, particularly related to co-op housing and sublets.
+<img width="1010" alt="Screen Shot 2024-12-05 at 5 57 47 PM" src="https://github.com/user-attachments/assets/277f8f22-8d68-487c-8af2-b828270973ef">
+
+
 
 ## Elizabeth's Housing Coordinator Page 
 When the Housing Coordinator has been selected you will be navigated to the Housing Coordinator page, which offers a few actionables things:
@@ -55,6 +58,7 @@ When you open this page on the side bar as well as on the housing coordinator pa
 - Recent Listings: View recently posted housing options.
 - About: Information about the app and its purpose.
 - Logout: Sign out of your current session.
+  
 
 ## Leah's Student Dashboard:   
 When you log in as a Student (e.g., Leah), you are directed to the Student Home page, which is designed to streamline the subletting process. On this page, you will see the following options:
