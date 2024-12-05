@@ -61,5 +61,10 @@ if listing_details:
     response = requests.delete(url)
     if response.status_code == 200:
       st.success("Listing deleted successfully!")
+      time.sleep(1)
+      st.info('Refreshing the page...')
+      st.session_state['listing_details'] = None
+      time.sleep(2)
+      st.rerun()
     else:
       st.error("Failed to delete listing.")

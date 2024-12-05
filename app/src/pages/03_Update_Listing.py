@@ -76,6 +76,11 @@ if listing_details:
     response = requests.put(url, json=payload)
     if response.status_code == 200:
       st.success("Listing updated successfully!")
+      time.sleep(1)
+      st.info('Refreshing the page...')
+      st.session_state['listing_details'] = None
+      time.sleep(2)
+      st.rerun()
     else:
       st.error("Failed to update listing.")
 
