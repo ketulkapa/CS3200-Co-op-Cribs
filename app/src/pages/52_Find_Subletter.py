@@ -57,7 +57,7 @@ if st.session_state.action == "Search for Subletters":
             "vibe": st.session_state.vibe
         }
         try:
-            response = requests.get(f"{base_url}/listings", params=params)
+            response = requests.get(f"{base_url}/l/listings", params=params)
             if response.status_code == 200:
                 subletters_data = response.json()
                 if subletters_data:
@@ -77,7 +77,7 @@ elif st.session_state.action == "View Matches":
     user_id = st.text_input("Enter Your User ID")
     if user_id.strip() and st.button("Get Matches"):
         try:
-            response = requests.get(f"{base_url}/matches/{user_id}")
+            response = requests.get(f"{base_url}/m/matches/{user_id}")
             if response.status_code == 200:
                 matches_data = response.json()
                 if matches_data:
@@ -104,7 +104,7 @@ elif st.session_state.action == "Send a Message":
                 "recipient_id": recipient_id,
                 "content": message_content
             }
-            response = requests.post(f"{base_url}/messages/{user_id}", json=data)
+            response = requests.post(f"{base_url}/m/messages/{user_id}", json=data)
             if response.status_code == 201:
                 st.success("Message sent successfully!")
             else:
