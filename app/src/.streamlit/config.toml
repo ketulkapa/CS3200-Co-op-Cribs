@@ -13,9 +13,10 @@
 showSidebarNavigation = false
 
 [theme]
-primaryColor="#ff6f61"
-backgroundColor="#fdfdfd"
-secondaryBackgroundColor="#efefef"
-textColor="#333333"
+base="light"
+primaryColor="#6abfdd"
+secondaryBackgroundColor="#f4f7fa"
+textColor="#1f2933"
+
 
 
