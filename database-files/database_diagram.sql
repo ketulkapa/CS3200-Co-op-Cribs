@@ -115,9 +115,7 @@ CREATE TABLE IF NOT EXISTS events (
 
 
 
------------------------------------------------------
 -- Sample Data --
------------------------------------------------------
 
 -- users --
 insert into users ( user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location) values (1, 'Safety Technician III', '(518) 5106528', '', 1285.91, true, 'Bentlee', 'Gumn', 'bgumn0@aboutads.info', 'Drainage of L Low Femur with Drain Dev, Perc Endo Approach', null, 'Columbia University', 18, 'Ishëm');
