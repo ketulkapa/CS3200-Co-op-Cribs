@@ -668,4 +668,86 @@ INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score,
 INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
 (40, 40, 1, 86, 'Fitness, Traveling');
 
+-- analyticsDashboard -- 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(1, 'Winter', 5, 'Safe', 'High demand expected in Q2', 1); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(2, 'Spring', 7, 'Safe', 'Moderate demand expected in Q3', 2); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(3, 'Summer', 3, 'Very Safe', 'High demand expected in Q1', 3); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(4, 'Fall', 6, 'Safe', 'Stable demand throughout the year', 4); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(5, 'Winter', 4, 'Safe', 'Moderate demand in Q4', 5); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(6, 'Spring', 8, 'Safe', 'High demand in Q3', 6); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(7, 'Summer', 2, 'Very Safe', 'Moderate demand expected in Q2', 7); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(8, 'Fall', 10, 'Safe', 'Low demand expected in Q1', 8); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(9, 'Winter', 9, 'Safe', 'Stable demand in Q2', 9); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(10, 'Spring', 5, 'Safe', 'High demand expected in Q3', 10); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(11, 'Summer', 12, 'Very Safe', 'Moderate demand expected in Q1', 11); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(12, 'Fall', 6, 'Safe', 'High demand expected in Q4', 12); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(13, 'Winter', 3, 'Very Safe', 'Low demand expected in Q2', 13); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(14, 'Spring', 10, 'Safe', 'Stable demand throughout the year', 14); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(15, 'Summer', 15, 'Safe', 'High demand in Q3', 15); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(16, 'Fall', 8, 'Safe', 'Moderate demand in Q1', 16); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(17, 'Winter', 4, 'Safe', 'Low demand expected in Q4', 17); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(18, 'Spring', 9, 'Safe', 'Stable demand in Q2', 18); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(19, 'Summer', 5, 'Very Safe', 'High demand in Q1', 19); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(20, 'Fall', 6, 'Safe', 'Moderate demand expected in Q2', 20); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(21, 'Winter', 7, 'Safe', 'Low demand expected in Q3', 21); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(22, 'Spring', 10, 'Safe', 'Stable demand throughout the year', 22); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(23, 'Summer', 12, 'Safe', 'Moderate demand expected in Q1', 23); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(24, 'Fall', 9, 'Safe', 'High demand expected in Q4', 24); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(25, 'Winter', 8, 'Safe', 'Low demand expected in Q1', 25); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(26, 'Spring', 5, 'Very Safe', 'Moderate demand in Q2', 26); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(27, 'Summer', 3, 'Very Safe', 'High demand expected in Q3', 27); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(28, 'Fall', 6, 'Safe', 'Moderate demand in Q2', 28); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(29, 'Winter', 4, 'Safe', 'High demand expected in Q4', 29); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(30, 'Spring', 7, 'Safe', 'Low demand expected in Q1', 30); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(31, 'Summer', 9, 'Safe', 'Stable demand throughout the year', 31); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(32, 'Fall', 10, 'Safe', 'High demand expected in Q3', 32); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(33, 'Winter', 6, 'Safe', 'Low demand in Q2', 33); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(34, 'Spring', 8, 'Safe', 'Moderate demand expected in Q1', 34); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(35, 'Summer', 5, 'Very Safe', 'High demand expected in Q4', 35); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(36, 'Fall', 9, 'Safe', 'Stable demand in Q3', 36); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(37, 'Winter', 3, 'Safe', 'Low demand expected in Q2', 37); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(38, 'Spring', 6, 'Safe', 'High demand expected in Q1', 38); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(39, 'Summer', 7, 'Very Safe', 'Moderate demand expected in Q3', 39); 
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
+(40, 'Fall', 10, 'Safe', 'Low demand expected in Q4', 40);
+
 -- 
