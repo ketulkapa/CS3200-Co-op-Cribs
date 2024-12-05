@@ -61,7 +61,7 @@ if st.button('Act as Leah, a student with an offer in San Francisco',
             type = 'primary', 
             use_container_width=True):
     st.session_state['authenticated'] = True
-    st.session_state['role'] = 'student'
+    st.session_state['role'] = 'subletter'
     st.session_state['first_name'] = 'Leah'
     st.switch_page('pages/50_Subletter_Dash.py')
 

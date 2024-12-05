@@ -72,6 +72,26 @@ def AdminPageNav():
         "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
     )
 
+#### ------------------------ Examples for Role of Leah ------------------------
+def SubletterDashNav():
+    st.sidebar.page_link(
+        "pages/50_Subletter_Dash.py", label="Subletter Dashboard", icon="✨"
+    )
+
+def ManageListingNav():
+    st.sidebar.page_link(
+        "pages/51_Manage_Listing.py", label="Manage Listing", icon="🏠"
+    )
+
+def FindSubLetterNav():
+    st.sidebar.page_link(
+        "pages/52_Find_Subletter.py", label="Find Subletter", icon="🔎"
+    )
+
+def HousingRecentListingsNav():
+    st.sidebar.page_link(
+        "pages/53_Reviews_and_Matches.py", label="Reviews and Matches", icon="👤"
+    )
 
 # --------------------------------Links Function -----------------------------------------------
 def SideBarLinks(show_home=False):
@@ -101,6 +121,12 @@ def SideBarLinks(show_home=False):
             HousingUserNav()
             HousingUpdateListingNav()
             HousingDeleteListingNav()
+            HousingRecentListingsNav()
+
+        if st.session_state["role"] == "subletter":
+            SubletterDashNav()
+            ManageListingNav()
+            FindSubLetterNav()
             HousingRecentListingsNav()
 
         # If the user role is usaid worker, show the Api Testing page
