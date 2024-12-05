@@ -750,4 +750,86 @@ INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rat
 INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood) VALUES 
 (40, 'Fall', 10, 'Safe', 'Low demand expected in Q4', 40);
 
+-- housing coordinator --
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(1, 'John', 'Doe', 'Housing Services', 1); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(2, 'Jane', 'Smith', 'Housing Services', 2); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(3, 'Alex', 'Johnson', 'Housing Services', 3); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(4, 'Emily', 'Williams', 'Housing Services', 4); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(5, 'Michael', 'Brown', 'Housing Services', 5); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(6, 'Sophia', 'Jones', 'Housing Services', 6); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(7, 'William', 'Garcia', 'Housing Services', 7); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(8, 'Olivia', 'Martinez', 'Housing Services', 8); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(9, 'Ethan', 'Rodriguez', 'Housing Services', 9); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(10, 'Ava', 'Martinez', 'Housing Services', 10); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(11, 'Isabella', 'Hernandez', 'Housing Services', 11); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(12, 'Liam', 'Lopez', 'Housing Services', 12); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(13, 'Mia', 'Gonzalez', 'Housing Services', 13); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(14, 'Noah', 'Wilson', 'Housing Services', 14); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(15, 'Zoe', 'Anderson', 'Housing Services', 15); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(16, 'Lucas', 'Thomas', 'Housing Services', 16); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(17, 'Ella', 'Jackson', 'Housing Services', 17); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(18, 'Jackson', 'White', 'Housing Services', 18); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(19, 'Grace', 'Martinez', 'Housing Services', 19); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(20, 'Benjamin', 'Rodriguez', 'Housing Services', 20); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(21, 'Harper', 'Brown', 'Housing Services', 21); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(22, 'Daniel', 'Williams', 'Housing Services', 22); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(23, 'Lily', 'Jones', 'Housing Services', 23); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(24, 'Samuel', 'Davis', 'Housing Services', 24); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(25, 'Madeline', 'Martinez', 'Housing Services', 25); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(26, 'Sebastian', 'Hernandez', 'Housing Services', 26); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(27, 'Chloe', 'Lopez', 'Housing Services', 27); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(28, 'Charlotte', 'White', 'Housing Services', 28); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(29, 'Amelia', 'Harris', 'Housing Services', 29); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(30, 'Aiden', 'Taylor', 'Housing Services', 30); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(31, 'Mason', 'Martin', 'Housing Services', 31); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(32, 'Evan', 'Lewis', 'Housing Services', 32); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(33, 'Henry', 'Young', 'Housing Services', 33); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(34, 'Isaac', 'King', 'Housing Services', 34); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(35, 'Jack', 'Scott', 'Housing Services', 35); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(36, 'Leah', 'Adams', 'Housing Services', 36); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(37, 'Samuel', 'Baker', 'Housing Services', 37); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(38, 'Matthew', 'Gonzalez', 'Housing Services', 38); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(39, 'Ethan', 'Nelson', 'Housing Services', 39); 
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
+(40, 'Noah', 'Perez', 'Housing Services', 40);
+
 -- 
