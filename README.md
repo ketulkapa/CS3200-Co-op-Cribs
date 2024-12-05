@@ -1,4 +1,4 @@
-# Co-Op Cribs
+<img width="1143" alt="Screen Shot 2024-12-05 at 3 44 23 PM" src="https://github.com/user-attachments/assets/29697845-e623-45c1-9903-d063d78c808d"># Co-Op Cribs
 
 Co-Op Cribs helps Northeastern University students find sublets while on co-op placements. The app connects students leaving their apartments with others in need of temporary housing, making the process of finding a sublet easy and efficient.
 
@@ -44,7 +44,6 @@ A real estate investor looking for opportunities in the student housing market, 
 <img width="1010" alt="Screen Shot 2024-12-05 at 5 57 47 PM" src="https://github.com/user-attachments/assets/277f8f22-8d68-487c-8af2-b828270973ef">
 
 
-
 ## Elizabeth's Housing Coordinator Page 
 When the Housing Coordinator has been selected you will be navigated to the Housing Coordinator page, which offers a few actionables things:
 
@@ -58,7 +57,8 @@ When you open this page on the side bar as well as on the housing coordinator pa
 - Recent Listings: View recently posted housing options.
 - About: Information about the app and its purpose.
 - Logout: Sign out of your current session.
-  
+<img width="1139" alt="Screen Shot 2024-12-05 at 2 42 06 PM" src="https://github.com/user-attachments/assets/0c764844-6493-46ff-8146-03114abfa8e9">
+
 
 ## Leah's Student Dashboard:   
 When you log in as a Student (e.g., Leah), you are directed to the Student Home page, which is designed to streamline the subletting process. On this page, you will see the following options:
@@ -71,6 +71,8 @@ When you open this page on the side bar as well as on the student dashboard page
 - View Subletter Reviews & Matches: Gives you access to reviews from previous subletters and shows how well you match with others looking for a sublet.
 - About: Provides information about the app and its purpose.
 - Logout: Allows you to log out of the current session.
+<img width="1138" alt="Screen Shot 2024-12-05 at 3 27 27 PM" src="https://github.com/user-attachments/assets/0e4d26a8-db1a-4592-8b70-65fa408bd591">
+
 
 
 ##  Ramesh's Student Dashboard:  
@@ -86,6 +88,7 @@ When you open this page on the side bar as well as on the student dashboard page
 - Check out neighborhoods: Explore different neighborhoods to decide where you'd like to live.
 - About: Provides information about the app and its purpose.
 - Logout: Allows you to log out of the current session.
+<img width="1021" alt="Screen Shot 2024-12-05 at 6 01 09 PM" src="https://github.com/user-attachments/assets/2466d843-21ef-440a-8e75-45bc540c1a91">
 
 
 ##  Sanay's Investor Dashboard:  
@@ -99,6 +102,7 @@ When you open this page on the side bar as well as on the investor dashboard pag
 - Messaging: Check and send messages to other users on the platform.
 - About: Information about the app and its purpose.
 - Logout: Log out of the current session.
+<img width="1143" alt="Screen Shot 2024-12-05 at 3 44 23 PM" src="https://github.com/user-attachments/assets/0950cc9b-29cb-42e0-ac0a-99f5d8d6d4e8">
 
 ## Settled 
 Once you are finally settled with your match or updated your listing and it is time to close the webpage, dont forget to 'docker compose down' to shutdown and stop the containers. 
