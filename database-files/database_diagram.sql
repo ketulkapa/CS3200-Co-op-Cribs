@@ -100,8 +100,7 @@ CREATE TABLE IF NOT EXISTS housingCoordinator (
   first_name VARCHAR(255) NOT NULL,
   last_name VARCHAR(255) NOT NULL,
   department VARCHAR(255) NOT NULL,
-  managed_listings INTEGER,
-  FOREIGN KEY (managed_listings) REFERENCES listings(listing_id)
+  managed_listings INTEGER
 );
 
 CREATE TABLE IF NOT EXISTS events (

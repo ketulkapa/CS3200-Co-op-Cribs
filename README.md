@@ -1,13 +1,56 @@
-# Fall 2024 CS 3200 Project Template Repository
+# Co-Op Cribs
 
-This repo is a template for your semester project.  It includes most of the infrastructure setup (containers) and sample code and data throughout.  Explore it fully and ask questions.
+Co-Op Cribs helps Northeastern University students find sublets while on co-op placements. The app connects students leaving their apartments with others in need of temporary housing, making the process of finding a sublet easy and efficient.
 
-## Prerequisites
+Team Members: 
+- Ketul Kapadia 
+- Arav Goyal
+- Cathreen Paul
+- Arnav Mishra
+- Janvi Lingaiah
 
-- A GitHub Account
-- A terminal-based or GUI git client
-- VSCode with the Python Plugin
-- A distrobution of Python running on your laptop (Choco (for Windows), brew (for Macs), miniconda, Anaconda, etc). 
+## Getting the WebPage Started 
+
+Before interacting with the web app, ensure that Docker containers are running. This is necessary to start the Streamlit app, Flask API, and MySQL database.
+
+To start the containers, run the following in the project directory:
+docker compose up
+
+Once this has been perfomed go into docker desktop to make sure the containers web-app, web-api, and mysql_db are running.
+Once the containers are running, you can access the web app at http://localhost:8501
+
+## Home Page Features
+
+On the home page, users are greeted with a selection of options to log in as one of the following:
+
+1. Elizabeth, a Housing Coordinator:
+A housing coordinator manages student housing listings, connects students with available sublets, and helps with logistics for those on co-op placements.
+
+2. Leah, a Student with an Offer in San Francisco:
+A student who has received a co-op offer in San Francisco and is searching for available sublets to stay during the co-op.
+
+3. Ramesh, an International Student with an Offer in New York City:
+An international student with a co-op offer in New York City. This user may have specific needs for housing related to being an international student.
+
+4. Sanay, a Real Estate Investor:
+A real estate investor looking for opportunities in the student housing market, particularly related to co-op housing and sublets.
+
+
+## Housing Coordinator Page 
+When the Housing Coordinator has been selected you will be navigated to the Housing Coordinator page, which offers a few actionables things:
+
+### Sidebar Navigation:
+When you open this page on the side bar as well as on the housing coordinator page there will be navigation links to go through:
+
+Dashboards: Access detailed dashboards for housing data and analytics for the housing.
+Users: View all registered users (students).
+Update Listing: Manage housing listings by updating available sublets.
+Delete Listing: Remove listings that are no longer available.
+Recent Listings: View recently posted housing options.
+Logout: Sign out of your current session.
+
+
+
 
 ## Current Project Components
 

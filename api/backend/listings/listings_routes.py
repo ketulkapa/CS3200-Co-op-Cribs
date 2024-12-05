@@ -140,7 +140,8 @@ def delete_listing(listingID):
 def get_new_listings(end_date):
     cursor = db.get_db().cursor()
     cursor.execute('''
-                   SELECT 
+                   SELECT
+                   created_at,
                    rent_amount, 
                    title, 
                    description, 

@@ -3,7 +3,7 @@ from modules.nav import SideBarLinks
 
 SideBarLinks()
 
-st.write("# About this App")
+st.write("# What is Co-op Cribs?")
 
 st.markdown (
     """
@@ -14,7 +14,7 @@ With data-powered personalized recommendations, you’ll get sublet options that
 Imagine this: You get to browse profiles of potential subletters, kind of like a dating app, but for apartments! You can see pictures, read fun bios, and get a feel for the vibe of the person who could be taking over your spot. No more guessing if they’ll respect your space—just swipe through profiles that match your timeline, vibe, and connect with ease.
 
 Key features include:
-“Match” with subletters and hosts based on compatibility (yes, it’s like swiping, but for housing!)
+“Match” with subletters and hosts based on compatibility (yes, it’s like swiping, but for housing).
 Profiles with bios and photos so you can get to know who you’re dealing with before making the leap.
 Personalized recommendations for places that match your timeline and budget—no more endless scrolling.
 
