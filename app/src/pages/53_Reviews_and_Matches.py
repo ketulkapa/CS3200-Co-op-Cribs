@@ -19,20 +19,24 @@ Find matches for your subletting needs.
 # API endpoint
 base_url = "http://api:4000"
 
+# Initialize session state for user ID if not already set
+if "user_id" not in st.session_state:
+    st.session_state.user_id = ""
+
 # Form to input user ID
-user_id = st.text_input("Enter Your User ID")
+st.session_state.user_id = st.text_input("Enter Your User ID", value=st.session_state.user_id)
 
 # Button to trigger API request
 if st.button("Get Matches"):
-    if user_id.strip():
+    if st.session_state.user_id.strip():
         try:
-            api_url = f"{base_url}/matches/{user_id}"
+            api_url = f"{base_url}/matches/{st.session_state.user_id}"
             response = requests.get(api_url)
             
             if response.status_code == 200:
                 matches_data = response.json()
                 if matches_data:
-                    st.write(f"### Matches for User ID: {user_id}")
+                    st.write(f"### Matches for User ID: {st.session_state.user_id}")
                     st.dataframe(matches_data)
                 else:
                     st.write("No matches found for your user ID.")
