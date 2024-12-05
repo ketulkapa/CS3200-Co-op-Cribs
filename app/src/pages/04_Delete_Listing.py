@@ -13,7 +13,7 @@ logger = logging.getLogger(__name__)
 SideBarLinks()
 
 st.title("Delete Listing")
-st.write("##### Delete a listing.")
+st.write("##### Delete a particular listing.")
 
 # Input fields for listing ID
 listing_id = st.text_input("Enter the Listing ID:", value="", help="Enter the ID of the listing you want to delete.")
