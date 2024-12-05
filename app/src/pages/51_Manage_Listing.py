@@ -33,7 +33,7 @@ if st.button("Apply Filters"):
 
     if filter_params:
         try:
-            api_url = 'http://api:4000/listings/filter'
+            api_url = 'http://api:4000/l/listings/filter'
             response = requests.get(api_url, params=filter_params)
 
             if response.status_code == 200:
@@ -55,7 +55,7 @@ if st.button("Apply Filters"):
 # Button to show new listings (created in the last 7 days)
 if st.button("Show New Listings"):
     try:
-        api_url = 'http://api:4000/listings/new'
+        api_url = 'http://api:4000/l/listings/new'
         response = requests.get(api_url)
 
         if response.status_code == 200:
