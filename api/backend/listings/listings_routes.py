@@ -139,7 +139,6 @@ def delete_listing(listingID):
 @listings.route('/listings/new/<end_date>', methods=['GET'])
 def get_new_listings(end_date):
     cursor = db.get_db().cursor()
-    end_date = request.args.get('end_date')
     cursor.execute('''
                    SELECT 
                    rent_amount, 
@@ -158,8 +157,9 @@ def get_new_listings(end_date):
                    verification_status, 
                    timeline 
                    FROM listings 
-                   WHERE created_at BETWEEN %s AND CURRENT_TIMESTAMP;
-    ''', (end_date))
+                   WHERE created_at BETWEEN %s AND CURRENT_TIMESTAMP(); 
+                   ''', (end_date,)
+                   )
     
     theData = cursor.fetchall()
     

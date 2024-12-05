@@ -16,9 +16,6 @@ SideBarLinks()
 # set the header of the page
 st.header('Dashboards')
 
-# You can access the session state to make a more customized/personalized app experience
-st.write(f"### Hi, {st.session_state['first_name']}.")
-
 st.write('##### Here are the dashboards available to you.')
 
 # Get Dashboards from api
@@ -35,6 +32,6 @@ api_url = "http://web-api:4000/d/dashboard"
 dashboards = get_dashboards(api_url)
 if dashboards:
     df = pd.DataFrame(dashboards)
-    st.dataframe(df)
+    st.dataframe(df, hide_index=True)
 else:
     st.write("No dashboards available.")

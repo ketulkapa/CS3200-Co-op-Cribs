@@ -31,7 +31,6 @@ def get_users(api_url):
 api_url = "http://web-api:4000/u/users"
 users = get_users(api_url)
 if users:
-    df = pd.DataFrame(users)
-    st.dataframe(df)
+    st.dataframe(users, hide_index=True)
 else:
     st.write("No users available.")
