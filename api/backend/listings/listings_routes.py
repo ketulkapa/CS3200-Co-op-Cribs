@@ -121,11 +121,11 @@ def update_listing(listingID):
 
 # Delete a listing by ID
 @listings.route('/listings/<listingID>', methods=['DELETE'])
-def delete_listing(listing_id):
+def delete_listing(listingID):
     query = '''
         DELETE FROM listings WHERE listing_id = %s
     '''
-    data = (listing_id)
+    data = (listingID)
 
     cursor = db.get_db().cursor()
     cursor.execute(query, data)
