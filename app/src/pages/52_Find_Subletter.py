@@ -101,7 +101,7 @@ elif st.session_state.action == "Send a Message":
         try:
             data = {
                 "sender_id": user_id,
-                "recipient_id": recipient_id,
+                "receiver_id": recipient_id,
                 "content": message_content
             }
             response = requests.post(f"{base_url}/m/messages", json=data)
