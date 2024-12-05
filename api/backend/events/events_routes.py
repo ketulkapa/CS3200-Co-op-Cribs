@@ -23,6 +23,17 @@ def get_all_events():
     response.status_code = 200
     return response
 
+# Retrieve events by zipcode
+@events.route('/events/<zipcode>', methods=['GET'])
+def get_zipcode_event(zipcode):
+    cursor = db.get_db().cursor()
+    query = 'SELECT * FROM events WHERE zipcode = %s'
+    cursor.execute(query, (zipcode,))
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+
 # Add a new event
 @events.route('/events', methods=['POST'])
 def add_event():
@@ -38,7 +49,7 @@ def add_event():
     
     query = '''
         INSERT INTO events (name, event_date, loc, zipcode, description, target_audience, event_host)
-        VALUES (%s, %s, %s, %s, %s, %s)
+        VALUES (%s, %s, %s, %s, %s, %s, %s)
     '''
     data = (name, event_date, loc, zipcode, description, target_audience, event_host)
     cursor = db.get_db().cursor()

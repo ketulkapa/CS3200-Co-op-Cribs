@@ -156,5 +156,5 @@ VALUES
 
 INSERT INTO events (name, event_date, loc, zipcode, description, target_audience, event_host)
 VALUES
-('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', '01414' 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
-('Co-op Opportunities Info Session', '2024-12-15 14:00:00', 'Northeastern University, Boston', '01545' 'An informational session for students looking to learn about upcoming co-op opportunities for Spring 2025.', 'Northeastern students', 'Northeastern University');
+('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', '01414', 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
+('Co-op Opportunities Info Session', '2024-12-15 14:00:00', 'Northeastern University, Boston', '01545', 'An informational session for students looking to learn about upcoming co-op opportunities for Spring 2025.', 'Northeastern students', 'Northeastern University');
