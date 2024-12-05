@@ -30,7 +30,7 @@ st.session_state.user_id = st.text_input("Enter Your User ID", value=st.session_
 if st.button("Get Matches"):
     if st.session_state.user_id.strip():
         try:
-            api_url = f"{base_url}/m/matches/{st.session_state.user_id}"
+            api_url = f"{base_url}/x/matches/{st.session_state.user_id}"
             response = requests.get(api_url)
             
             if response.status_code == 200:

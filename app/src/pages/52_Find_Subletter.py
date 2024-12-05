@@ -77,7 +77,7 @@ elif st.session_state.action == "View Matches":
     user_id = st.text_input("Enter Your User ID")
     if user_id.strip() and st.button("Get Matches"):
         try:
-            response = requests.get(f"{base_url}/m/matches/{user_id}")
+            response = requests.get(f"{base_url}/x/matches/{user_id}")
             if response.status_code == 200:
                 matches_data = response.json()
                 if matches_data:
