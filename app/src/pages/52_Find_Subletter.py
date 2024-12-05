@@ -104,7 +104,7 @@ elif st.session_state.action == "Send a Message":
                 "recipient_id": recipient_id,
                 "content": message_content
             }
-            response = requests.post(f"{base_url}/m/messages/{user_id}", json=data)
+            response = requests.post(f"{base_url}/m/messages", json=data)
             if response.status_code == 201:
                 st.success("Message sent successfully!")
             else:
