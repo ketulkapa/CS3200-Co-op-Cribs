@@ -46,6 +46,7 @@ When you open this page on the side bar as well as on the housing coordinator pa
 - Update Listing: Manage housing listings by updating available sublets.
 - Delete Listing: Remove listings that are no longer available.
 - Recent Listings: View recently posted housing options.
+- About: Information about the app and its purpose.
 - Logout: Sign out of your current session.
 
 ## Leah's Student Dashboard:   
@@ -91,6 +92,6 @@ When you open this page on the side bar as well as on the investor dashboard pag
 ## Settled 
 Once you are finally settled with your match or updated your listing and it is time to close the webpage, dont forget to 'docker compose down' to shutdown and delete the containers. 
 
-## Demo walk through: 
+### Demo walk through: 
 
-### Thanks for using Co-Op Cribs. Hope you found your match!
+## Thanks for using Co-Op Cribs. Hope you found your match!
