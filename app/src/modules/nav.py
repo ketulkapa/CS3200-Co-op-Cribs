@@ -110,7 +110,7 @@ def StudentEventsSearch():
 
 def StudentMatches():
     st.sidebar.page_link(
-        "pages/23_Events.py", label="Events", icon="🌺"
+        "pages/25_Matches.py", label="Matches", icon="🌺"
     )
 
 def StudentNeighborhoodsSearch():
