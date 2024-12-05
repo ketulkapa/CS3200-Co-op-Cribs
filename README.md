@@ -16,7 +16,7 @@ Before interacting with the web app, ensure that Docker containers are running. 
 To start the containers, run the following in the project directory:
 docker compose up
 
-Once this has been perfomed go into docker desktop to make sure the containers web-app, web-api, and mysql_db
+Once this has been perfomed go into docker desktop to make sure the containers web-app, web-api, and mysql_db are running.
 Once the containers are running, you can access the web app at http://localhost:8501
 
 ## Home Page Features
@@ -34,6 +34,22 @@ An international student with a co-op offer in New York City. This user may have
 
 4. Sanay, a Real Estate Investor:
 A real estate investor looking for opportunities in the student housing market, particularly related to co-op housing and sublets.
+
+
+## Housing Coordinator Page 
+When the Housing Coordinator has been selected you will be navigated to the Housing Coordinator page, which offers a few actionables things:
+
+### Sidebar Navigation:
+When you open this page on the side bar as well as on the housing coordinator page there will be navigation links to go through:
+
+Dashboards: Access detailed dashboards for housing data and analytics for the housing.
+Users: View all registered users (students).
+Update Listing: Manage housing listings by updating available sublets.
+Delete Listing: Remove listings that are no longer available.
+Recent Listings: View recently posted housing options.
+Logout: Sign out of your current session.
+
+
 
 
 ## Current Project Components
