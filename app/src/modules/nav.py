@@ -88,10 +88,34 @@ def ClassificationNav():
 
 
 #### ------------------------ System Admin Role ------------------------
-def AdminPageNav():
-    st.sidebar.page_link("pages/20_Admin_Home.py", label="System Admin", icon="🖥️")
+def RameshHomeNav():
     st.sidebar.page_link(
-        "pages/21_ML_Model_Mgmt.py", label="ML Model Management", icon="🏢"
+        "pages/20_Ramesh_Home.py", label="Ramesh Home", icon="🏠"
+    )
+
+def RameshListingsSearch():
+    st.sidebar.page_link(
+        "pages/21_Listings.py", label="Listings Sarch", icon="📈"
+    )
+
+def RameshMessages():
+    st.sidebar.page_link(
+        "pages/22_Messaging.py", label="Messages", icon="💬"
+    )
+
+def RameshEventsSearch():
+    st.sidebar.page_link(
+        "pages/23_Events.py", label="Events", icon="🎉"
+    )
+
+def RameshMatches():
+    st.sidebar.page_link(
+        "pages/23_Events.py", label="Events", icon="🌺"
+    )
+
+def RameshNeighborhoodsSearch():
+    st.sidebar.page_link(
+        "pages/26_Neighborhoods.py", label="Neighborhoods", icon="🔎"
     )
 
 
