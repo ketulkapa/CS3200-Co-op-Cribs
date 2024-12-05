@@ -17,24 +17,24 @@ st.write('### What would you like to do today?')
 if st.button('Check my messages', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/43_Messaging.py')
+  st.switch_page('pages/22_Messaging.py')
 
 if st.button('Check Listings', 
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/______.py')
+  st.switch_page('pages/21_Listings.py')
 
 if st.button("Find events near me",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/___.py')
+  st.switch_page('pages/23_Events.py')
 
 if st.button("Find potential room mates",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/___.py')
+  st.switch_page('pages/25_Matches.py')
 
 if st.button("Check out neighborhoods",
              type='primary',
              use_container_width=True):
-  st.switch_page('pages/____.py')
+  st.switch_page('pages/26_Neighborhoods.py')
