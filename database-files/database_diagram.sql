@@ -104,12 +104,13 @@ CREATE TABLE IF NOT EXISTS housingCoordinator (
 
 CREATE TABLE IF NOT EXISTS events (
     events_id INTEGER PRIMARY KEY AUTO_INCREMENT,
-    name TEXT NOT NULL,               -- Name of the event
-    event_date TEXT NOT NULL,         -- Date and time of the event
-    loc TEXT NOT NULL,                -- Location of the event
-    description TEXT,                 -- A description of the event
-    target_audience TEXT,            -- Target audience (e.g., Northeastern students, co-op workers)
-    event_host TEXT                 -- Organizer/Host of the event
+    name TEXT NOT NULL,               
+    event_date TEXT NOT NULL,         
+    loc TEXT NOT NULL,
+    zipcode varchar(15) NOT NULL,                
+    description TEXT,                 
+    target_audience TEXT,            
+    event_host TEXT                 
 );
 
 
@@ -153,7 +154,7 @@ VALUES
 ('Alice', 'Johnson', 'Housing'),
 ('Bob', 'Williams', 'Housing');
 
-INSERT INTO events (name, event_date, loc, description, target_audience, event_host)
+INSERT INTO events (name, event_date, loc, zipcode, description, target_audience, event_host)
 VALUES
-('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
-('Co-op Opportunities Info Session', '2024-12-15 14:00:00', 'Northeastern University, Boston', 'An informational session for students looking to learn about upcoming co-op opportunities for Spring 2025.', 'Northeastern students', 'Northeastern University');
+('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', '01414' 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
+('Co-op Opportunities Info Session', '2024-12-15 14:00:00', 'Northeastern University, Boston', '01545' 'An informational session for students looking to learn about upcoming co-op opportunities for Spring 2025.', 'Northeastern students', 'Northeastern University');
