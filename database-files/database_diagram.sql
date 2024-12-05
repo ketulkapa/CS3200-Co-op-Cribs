@@ -339,4 +339,87 @@ INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, c
 INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
 (40, 3, 40, 1, '2027-04-01 17:00:00', 'Good experience, but there were a few miscommunications regarding check-in times.', 7);
 
+-- neighborhoods --
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(1, 'Downtown', 10000, 8, 'A bustling area with restaurants, shops, and nightlife. High population density and moderate safety.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(2, 'Old Town', 8000, 9, 'A historical district with cobblestone streets and museums. Known for its safety and charm.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(3, 'Greenwich Village', 12000, 7, 'An artistic neighborhood with cafes and boutiques. Can get crowded but offers a vibrant atmosphere.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(4, 'Harlem', 15000, 6, 'A culturally rich area known for its history and music scene. Safety can be a concern in certain spots.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(5, 'SoHo', 20000, 8, 'A trendy area with high-end shopping, art galleries, and restaurants. A popular spot for both tourists and locals.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(6, 'Brooklyn Heights', 7000, 9, 'A scenic neighborhood with great views of Manhattan and a quiet residential feel.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(7, 'Chinatown', 18000, 5, 'A densely packed area with great food and markets. Can be crowded and less safe at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(8, 'Upper East Side', 10000, 9, 'An affluent area with parks, museums, and luxury shopping. Very safe and family-friendly.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(9, 'Midtown', 22000, 7, 'A central business district with offices, hotels, and shops. Very busy but safe in well-lit areas.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(10, 'East Village', 15000, 6, 'A vibrant neighborhood with bars, clubs, and artistic spaces. Some areas can be sketchy at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(11, 'Fidi (Financial District)', 25000, 9, 'A financial hub with tall buildings and quick access to public transport. Safe and secure.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(12, 'NoHo', 14000, 8, 'A creative district with theaters and studios. Somewhat crowded but offers a unique vibe.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(13, 'Hell’s Kitchen', 16000, 7, 'A neighborhood with diverse dining options, great for young professionals. Can be a little noisy at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(14, 'Flatiron District', 17000, 8, 'A business district surrounded by parks and restaurants. High foot traffic but safe overall.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(15, 'Greenpoint', 8000, 6, 'A residential area in Brooklyn with many Polish immigrants. A bit isolated from major attractions.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(16, 'Williamsburg', 13000, 7, 'A hipster hotspot in Brooklyn known for its art galleries and nightlife. Some areas are safer than others.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(17, 'Coney Island', 2000, 8, 'A coastal neighborhood with famous beaches and amusement parks. Safe during the daytime, quieter at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(18, 'Astoria', 14000, 9, 'A diverse neighborhood with excellent food and cultural venues. Safe and family-friendly.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(19, 'Chelsea', 16000, 8, 'An upscale neighborhood with art galleries and trendy eateries. Safe and close to major attractions.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(20, 'Inwood', 6000, 7, 'A quiet neighborhood in upper Manhattan. Offers parks and is residential with a lower crime rate.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(21, 'Washington Heights', 14000, 6, 'A vibrant neighborhood with a strong sense of community. Some areas can feel unsafe at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(22, 'Upper West Side', 12000, 9, 'A family-friendly area with parks, museums, and theaters. Safe and upscale.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(23, 'Park Slope', 11000, 9, 'A quiet, residential area in Brooklyn known for its tree-lined streets and great schools.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(24, 'Jackson Heights', 18000, 6, 'A diverse neighborhood with excellent public transit access. Some areas are less safe.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(25, 'Carroll Gardens', 9000, 8, 'A charming Brooklyn neighborhood with small-town vibes and excellent food options.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(26, 'East Harlem', 15000, 5, 'A rapidly changing neighborhood with a mix of old and new. Safety can be a concern in some areas.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(27, 'Bushwick', 20000, 6, 'Known for its art scene and street art murals, but some areas are unsafe at night.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(28, 'Kips Bay', 11000, 8, 'A neighborhood with great shopping, dining, and easy access to public transportation.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(29, 'Bensonhurst', 13000, 7, 'A family-friendly neighborhood with strong community ties and easy access to the subway.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(30, 'Morningside Heights', 8000, 8, 'A peaceful area near Columbia University, offering green spaces and safety.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(31, 'Forest Hills', 7000, 9, 'A suburban feel with lots of parks and great schools. Quiet and safe.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(32, 'Sunset Park', 11000, 7, 'A diverse neighborhood with a mix of residential, commercial, and industrial spaces.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(33, 'Fort Greene', 12000, 8, 'A vibrant Brooklyn neighborhood with historical significance, parks, and easy access to subway.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(34, 'Bed-Stuy', 14000, 6, 'A neighborhood with a rich cultural history. Safety can vary from block to block.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(35, 'Red Hook', 7000, 6, 'A waterfront neighborhood known for its warehouses and artsy vibe. Somewhat isolated and less safe.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(36, 'Crown Heights', 13000, 7, 'A historic area with diverse communities. Safety varies, but new development is improving it.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(37, 'Williamsbridge', 11000, 8, 'A quieter residential area with good schools and green spaces.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(38, 'Flatlands', 10000, 7, 'A suburban neighborhood with low crime rates and a tight-knit community.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(39, 'Bay Ridge', 11000, 8, 'A waterfront neighborhood with a Mediterranean feel, popular for families and quieter living.');
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights) VALUES
+(40, 'Sheepshead Bay', 12000, 7, 'A coastal area with easy access to the beach and fishing opportunities. Some areas have higher crime rates.');
+
+
 -- 
