@@ -13,13 +13,13 @@ SideBarLinks()
 st.write("# Find Subletters")
 
 """
-Easily search for subletters that match your preferences, view matches, send messages, and read reviews.
+Easily search for subletters that match your preferences, view matches, and send messages.
 """
 
 # Dropdown for selecting an action
 action = st.selectbox(
     "What would you like to do?",
-    options=["Search for Subletters", "View Matches", "Send a Message", "Read Subletter Reviews"]
+    options=["Search for Subletters", "View Matches", "Send a Message"]
 )
 
 # API endpoints
@@ -91,22 +91,6 @@ if st.button("Proceed"):
                     st.error(f"Failed to send message. {response.text}")
                     logger.error(f"Error sending message: {response.text}")
 
-        elif action == "Read Subletter Reviews":
-            st.write("### Read Reviews for a Subletter")
-            reviewee_id = st.text_input("Enter the Reviewee ID")
-            
-            if reviewee_id.strip() and st.button("Get Reviews"):
-                response = requests.get(f"{base_url}/reviews/{reviewee_id}")
-                if response.status_code == 200:
-                    reviews_data = response.json()
-                    if reviews_data:
-                        st.write(f"### Reviews for Subletter ID: {reviewee_id}")
-                        st.dataframe(reviews_data)
-                    else:
-                        st.write("No reviews found for this subletter.")
-                else:
-                    st.error(f"Failed to fetch reviews. {response.text}")
-                    logger.error(f"Error fetching reviews: {response.text}")
     except Exception as e:
         st.error("An error occurred while processing your request.")
         logger.exception("Exception in find subletters actions")
