@@ -134,7 +134,7 @@ def FindSubLetterNav():
         "pages/52_Find_Subletter.py", label="Find Subletter", icon="🔎"
     )
 
-def HousingRecentListingsNav():
+def ReviewsAndMatchesNav():
     st.sidebar.page_link(
         "pages/53_Reviews_and_Matches.py", label="Reviews and Matches", icon="👤"
     )
@@ -173,7 +173,7 @@ def SideBarLinks(show_home=False):
             SubletterDashNav()
             ManageListingNav()
             FindSubLetterNav()
-            HousingRecentListingsNav()
+            ReviewsAndMatchesNav()
 
         # If the user role is usaid worker, show the Api Testing page
         if st.session_state["role"] == "investor":
