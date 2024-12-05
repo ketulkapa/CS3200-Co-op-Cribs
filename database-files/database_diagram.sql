@@ -257,4 +257,86 @@ INSERT IGNORE INTO users (user_id, role, phone_number, coop_timeline, budget, ho
 INSERT IGNORE INTO users (user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location) VALUES
 (40, 'Student', '987-654-3249', 'Mar 2024 - Sept 2024', '600-800 USD', 'Looking for sublet', 'Liam', 'Scott', 'liamscott@example.com', 'Low', 'Music, Reading', 'Duke University', 21, 'Durham, NC');
 
+-- reviews --
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(1, 5, 1, 2, '2024-01-01 12:30:00', 'Great experience, very responsive and friendly.', 9);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(2, 4, 2, 3, '2024-02-15 10:45:00', 'Nice to work with, but communication could improve.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(3, 5, 3, 4, '2024-03-01 14:30:00', 'Excellent cooperation, everything was smooth.', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(4, 3, 4, 5, '2024-04-12 16:00:00', 'Decent experience, but could have been better.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(5, 4, 5, 6, '2024-05-01 09:00:00', 'Good interaction, would recommend.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(6, 2, 6, 7, '2024-06-10 11:30:00', 'Not very responsive, had some issues.', 6);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(7, 5, 7, 8, '2024-07-20 13:30:00', 'Amazing! Everything was perfect, would rent again.', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(8, 4, 8, 9, '2024-08-05 15:00:00', 'Great stay, just needed a bit more space.', 9);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(9, 3, 9, 10, '2024-09-15 18:00:00', 'Average experience, had some trouble with communication.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(10, 5, 10, 11, '2024-10-01 19:00:00', 'Everything was perfect, would definitely recommend!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(11, 4, 11, 12, '2024-11-10 17:30:00', 'Good experience, minor issues with the payment.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(12, 2, 12, 13, '2024-12-01 14:30:00', 'Had several issues during the stay, not great.', 5);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(13, 5, 13, 14, '2025-01-05 16:00:00', 'Fantastic host, everything was as expected!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(14, 4, 14, 15, '2025-02-15 11:30:00', 'Good experience, communication was easy.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(15, 3, 15, 16, '2025-03-20 13:00:00', 'Not bad, but had some issues with the amenities.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(16, 5, 16, 17, '2025-04-10 10:30:00', 'Perfect stay! Very responsive and kind host.', 9);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(17, 4, 17, 18, '2025-05-01 09:00:00', 'Good experience, clean and comfortable.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(18, 3, 18, 19, '2025-06-10 12:00:00', 'Average experience, had some communication issues.', 6);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(19, 5, 19, 20, '2025-07-15 14:00:00', 'Couldn’t have asked for a better host. 10/10!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(20, 4, 20, 21, '2025-08-01 15:30:00', 'Great communication, some minor issues with cleanliness.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(21, 2, 21, 22, '2025-09-05 16:30:00', 'The stay was not as expected, several issues with the apartment.', 5);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(22, 5, 22, 23, '2025-10-10 17:00:00', 'Amazing experience, highly recommended!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(23, 4, 23, 24, '2025-11-01 18:00:00', 'Very comfortable stay, would stay again!', 9);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(24, 3, 24, 25, '2025-12-05 19:00:00', 'The experience was decent, but some areas need improvement.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(25, 5, 25, 26, '2026-01-10 20:30:00', 'Absolutely loved it, great communication and service!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(26, 4, 26, 27, '2026-02-15 09:30:00', 'Great experience overall, just needed more space.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(27, 3, 27, 28, '2026-03-20 12:30:00', 'Had some problems with the facilities, but overall okay.', 6);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(28, 5, 28, 29, '2026-04-25 11:00:00', 'Everything was perfect, definitely recommended!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(29, 4, 29, 30, '2026-05-15 13:00:00', 'Nice stay, but the Wi-Fi connection could have been better.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(30, 3, 30, 31, '2026-06-01 14:30:00', 'It was decent, but there were some issues with cleanliness.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(31, 5, 31, 32, '2026-07-10 15:30:00', 'Perfect host, everything was great, highly recommended!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(32, 4, 32, 33, '2026-08-05 16:00:00', 'Good experience overall, clean apartment but a little noisy.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(33, 3, 33, 34, '2026-09-15 17:30:00', 'Some issues with the heating system, but everything else was fine.', 7);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(34, 5, 34, 35, '2026-10-20 18:00:00', 'Excellent stay, host was very accommodating and responsive.', 9);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(35, 4, 35, 36, '2026-11-10 19:30:00', 'Nice apartment, some minor maintenance issues, but overall pleasant.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(36, 3, 36, 37, '2026-12-01 20:00:00', 'Decent stay, but there were issues with the Wi-Fi during my time.', 6);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(37, 5, 37, 38, '2027-01-15 14:00:00', 'Fantastic experience, highly recommend this place!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(38, 4, 38, 39, '2027-02-10 15:00:00', 'Great place to stay, just needed a bit more lighting in the bedroom.', 8);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(39, 5, 39, 40, '2027-03-05 16:30:00', 'Everything was perfect, I would love to stay again!', 10);
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score) VALUES 
+(40, 3, 40, 1, '2027-04-01 17:00:00', 'Good experience, but there were a few miscommunications regarding check-in times.', 7);
+
 -- 
