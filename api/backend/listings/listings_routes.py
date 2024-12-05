@@ -136,9 +136,10 @@ def delete_listing(listingID):
     return the_response
 
 # Get all listings created in the last 7 days
-@listings.route('/listings/new', methods=['GET'])
-def get_new_listings():
+@listings.route('/listings/new/<end_date>', methods=['GET'])
+def get_new_listings(end_date):
     cursor = db.get_db().cursor()
+    end_date = request.args.get('end_date')
     cursor.execute('''
                    SELECT 
                    rent_amount, 
@@ -157,9 +158,8 @@ def get_new_listings():
                    verification_status, 
                    timeline 
                    FROM listings 
-                   WHERE created_at >= DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY);
-
-    ''')
+                   WHERE created_at BETWEEN %s AND CURRENT_TIMESTAMP;
+    ''', (end_date))
     
     theData = cursor.fetchall()
     
