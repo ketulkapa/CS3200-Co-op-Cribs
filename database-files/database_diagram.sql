@@ -586,4 +586,86 @@ INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, cont
 INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
 (40, '2024-02-09 23:00:00', 40, 1, 'Great! I’ll send over the contract tomorrow. Thank you for your patience.');
 
+-- roomateMatches
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(1, 1, 2, 85, 'Music, Movies'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(2, 2, 3, 90, 'Technology, Basketball'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(3, 3, 4, 80, 'Art, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(4, 4, 5, 88, 'Reading, Hiking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(5, 5, 6, 75, 'Fitness, Photography'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(6, 6, 7, 92, 'Cooking, Music'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(7, 7, 8, 85, 'Sports, Technology'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(8, 8, 9, 80, 'Movies, Traveling'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(9, 9, 10, 90, 'Music, Hiking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(10, 10, 11, 87, 'Fitness, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(11, 11, 12, 80, 'Art, Technology'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(12, 12, 13, 78, 'Movies, Reading'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(13, 13, 14, 84, 'Cooking, Photography'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(14, 14, 15, 90, 'Running, Hiking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(15, 15, 16, 76, 'Music, Sports'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(16, 16, 17, 85, 'Technology, Photography'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(17, 17, 18, 88, 'Fitness, Traveling'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(18, 18, 19, 90, 'Yoga, Reading'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(19, 19, 20, 79, 'Movies, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(20, 20, 21, 82, 'Sports, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(21, 21, 22, 80, 'Technology, Fitness'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(22, 22, 23, 91, 'Art, Hiking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(23, 23, 24, 85, 'Music, Photography'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(24, 24, 25, 90, 'Yoga, Sports'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(25, 25, 26, 86, 'Art, Fitness'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(26, 26, 27, 92, 'Cooking, Technology'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(27, 27, 28, 84, 'Reading, Traveling'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(28, 28, 29, 88, 'Movies, Fitness'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(29, 29, 30, 91, 'Sports, Yoga'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(30, 30, 31, 87, 'Photography, Art'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(31, 31, 32, 90, 'Technology, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(32, 32, 33, 85, 'Traveling, Yoga'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(33, 33, 34, 82, 'Fitness, Cooking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(34, 34, 35, 91, 'Movies, Sports'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(35, 35, 36, 88, 'Photography, Technology'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(36, 36, 37, 89, 'Reading, Art'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(37, 37, 38, 82, 'Yoga, Hiking'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(38, 38, 39, 90, 'Movies, Technology'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(39, 39, 40, 84, 'Cooking, Yoga'); 
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests) VALUES 
+(40, 40, 1, 86, 'Fitness, Traveling');
+
 -- 
