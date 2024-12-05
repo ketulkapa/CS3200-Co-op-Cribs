@@ -67,8 +67,14 @@ def InvestorAnalyticsNav():
 
 def InvestorMessagingNav():
     st.sidebar.page_link(
-        "pages/43_Messaging.py", label="Messaging", icon="👤"
+        "pages/43_Messaging.py", label="Messaging", icon="💬"
     )
+
+def InvestorApproveOrDenyNav():
+    st.sidebar.page_link(
+        "pages/44_Review_Subletter.py", label="Review", icon="👤"
+    )
+
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
 def ApiTestNav():
@@ -181,6 +187,7 @@ def SideBarLinks(show_home=False):
             InvestorReviewsNav()
             InvestorAnalyticsNav()
             InvestorMessagingNav()
+            InvestorApproveOrDenyNav()
 
         # If the user is Ramesh, give them access to the Ramesh pages
         if st.session_state["role"] == "student":

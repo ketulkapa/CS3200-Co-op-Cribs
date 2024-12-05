@@ -28,3 +28,8 @@ if st.button('View Analytics',
              type='primary',
              use_container_width=True):
   st.switch_page('pages/42_Investor_Analytics.py')
+
+if st.button('Approve or Deny Subletter', 
+             type='primary',
+             use_container_width=True):
+  st.switch_page('pages/44_Review_Subletter.py')
