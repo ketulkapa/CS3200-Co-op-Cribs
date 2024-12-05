@@ -1,4 +1,4 @@
-<img width="1143" alt="Screen Shot 2024-12-05 at 3 44 23 PM" src="https://github.com/user-attachments/assets/29697845-e623-45c1-9903-d063d78c808d"># Co-Op Cribs
+# Co-Op Cribs
 
 Co-Op Cribs helps Northeastern University students find sublets while on co-op placements. The app connects students leaving their apartments with others in need of temporary housing, making the process of finding a sublet easy and efficient.
 
