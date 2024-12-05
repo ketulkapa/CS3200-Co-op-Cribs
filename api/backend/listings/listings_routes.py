@@ -199,35 +199,100 @@ def deny_listing(listing_id):
     the_response.status_code = 200
     return the_response
 
-# Get a listing based on filters
+# Get a listing based on optional filters
 @listings.route('/listings/filter', methods=['GET'])
 def filter_listings():
     current_app.logger.info('GET /listings/filter route')
-    listing_info = request.json
-    rent_amount = listing_info['rent_amount']
-    title = listing_info['title']
-    description = listing_info['description']
-    amenities = listing_info['amenities']
-    safety_rating = listing_info['safety_rating']
-    location = listing_info['location']
-    created_by = listing_info['created_by']
-    neighborhood_id = listing_info['neighborhood_id']
-    house_number = listing_info['house_number']
-    street = listing_info['street']
-    city = listing_info['city']
-    zipcode = listing_info['zipcode']
-    verification_status = listing_info['verification_status']
-    timeline = listing_info['timeline']
+    
+    # Get filters from the query string (using request.args.get for optional parameters)
+    rent_amount = request.args.get('rent_amount', type=int)
+    title = request.args.get('title', type=str)
+    description = request.args.get('description', type=str)
+    amenities = request.args.get('amenities', type=str)
+    safety_rating = request.args.get('safety_rating', type=int)
+    location = request.args.get('location', type=str)
+    created_by = request.args.get('created_by', type=int)
+    neighborhood_id = request.args.get('neighborhood_id', type=int)
+    house_number = request.args.get('house_number', type=int)
+    street = request.args.get('street', type=str)
+    city = request.args.get('city', type=str)
+    zipcode = request.args.get('zipcode', type=str)
+    verification_status = request.args.get('verification_status', type=bool)
+    timeline = request.args.get('timeline', type=str)
 
-    query = '''
-        SELECT * FROM listings WHERE rent_amount = %s AND title = %s AND description = %s AND amenities = %s AND safety_rating = %s AND location = %s AND created_by = %s AND neighborhood_id = %s AND house_number = %s AND street = %s AND city = %s AND zipcode = %s AND verification_status = %s AND timeline = %s
-    '''
-    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+    # Start building the query
+    query = 'SELECT * FROM listings WHERE 1=1'  # Base query with `WHERE 1=1` for easy appending of conditions
+    filters = []
 
+    # Add filters to the query dynamically based on provided parameters
+    if rent_amount:
+        query += ' AND rent_amount = %s'
+        filters.append(rent_amount)
+    
+    if title:
+        query += ' AND title LIKE %s'
+        filters.append(f"%{title}%")
+    
+    if description:
+        query += ' AND description LIKE %s'
+        filters.append(f"%{description}%")
+    
+    if amenities:
+        query += ' AND amenities LIKE %s'
+        filters.append(f"%{amenities}%")
+    
+    if safety_rating:
+        query += ' AND safety_rating = %s'
+        filters.append(safety_rating)
+    
+    if location:
+        query += ' AND location LIKE %s'
+        filters.append(f"%{location}%")
+    
+    if created_by:
+        query += ' AND created_by = %s'
+        filters.append(created_by)
+    
+    if neighborhood_id:
+        query += ' AND neighborhood_id = %s'
+        filters.append(neighborhood_id)
+    
+    if house_number:
+        query += ' AND house_number = %s'
+        filters.append(house_number)
+    
+    if street:
+        query += ' AND street LIKE %s'
+        filters.append(f"%{street}%")
+    
+    if city:
+        query += ' AND city LIKE %s'
+        filters.append(f"%{city}%")
+    
+    if zipcode:
+        query += ' AND zipcode = %s'
+        filters.append(zipcode)
+    
+    if verification_status is not None:  # Check for bool values (True/False)
+        query += ' AND verification_status = %s'
+        filters.append(verification_status)
+    
+    if timeline:
+        query += ' AND timeline LIKE %s'
+        filters.append(f"%{timeline}%")
+
+    # Execute the query
     cursor = db.get_db().cursor()
-    cursor.execute(query, data)
-    db.get_db().commit()
+    cursor.execute(query, tuple(filters))
+    data = cursor.fetchall()
 
-    the_response = make_response(jsonify('listing filtered!'))
-    the_response.status_code = 200
-    return the_response
+    # If no results, return a message
+    if not data:
+        response = make_response(jsonify({'message': 'No listings found matching the filters.'}))
+        response.status_code = 404
+        return response
+
+    # Return the filtered listings
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
