@@ -11,7 +11,14 @@ Team Members:
 
 ## Getting the WebPage Started 
 
-Before interacting with the web app, ensure that Docker containers are running. This is necessary to start the Streamlit app, Flask API, and MySQL database.
+Before starting the Docker containers, you need to configure your environment variables. Navigate to the .env file in the root directory of the project and ensure  the following configuration:
+- SECRET_KEY: Used for securing sessions and cryptographic operations.
+- DB_USER: MySQL username (typically root).
+- DB_HOST: The database container's hostname (db).
+- DB_PORT: The port for the MySQL database (default is 3306).
+- MYSQL_ROOT_PASSWORD: The root password for the MySQL database.
+
+Now, before interacting with the web app, ensure that Docker containers are running. This is necessary to start the Streamlit app, Flask API, and MySQL database.
 
 To start the containers, run the following in the project directory:
 'docker compose up'.
