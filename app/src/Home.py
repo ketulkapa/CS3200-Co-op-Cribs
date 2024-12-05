@@ -63,7 +63,7 @@ if st.button('Act as Leah, a student with an offer in San Francisco',
     st.session_state['authenticated'] = True
     st.session_state['role'] = 'student'
     st.session_state['first_name'] = 'Leah'
-    st.switch_page('pages/10_USAID_Worker_Home.py')
+    st.switch_page('pages/50_Subletter_Dash.py')
 
 if st.button('Act as Ramesh, an international student with an offer in New York City', 
             type = 'primary', 

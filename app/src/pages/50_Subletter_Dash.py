@@ -21,7 +21,7 @@ if st.button('Manage Your Listing', type='primary', use_container_width=True):
     st.switch_page('pages/51_Manage_Listing.py')
 
 if st.button('Find and Connect with Subletters', type='primary', use_container_width=True):
-    st.switch_page('pages/52_Find_Subletters.py')
+    st.switch_page('pages/52_Find_Subletter.py')
 
 if st.button('View Subletter Reviews & Matches', type='primary', use_container_width=True):
     st.switch_page('pages/53_Reviews_and_Matches.py')
