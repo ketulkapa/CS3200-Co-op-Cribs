@@ -2,6 +2,9 @@ DROP DATABASE IF EXISTS coopCribs;
 CREATE DATABASE IF NOT EXISTS coopCribs;
 USE coopCribs;
 
+-- DDL --
+
+
 CREATE TABLE IF NOT EXISTS users (
   user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   role VARCHAR(100) NOT NULL,
@@ -113,6 +116,61 @@ CREATE TABLE IF NOT EXISTS events (
     event_host TEXT                 
 );
 
+-- Insert data into users
+INSERT IGNORE INTO users (user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location)
+VALUES
+('U000001', 'Student', '555-1234', 'Fall 2024 - Spring 2025', '1000-1500', 'Looking for a subletter', 'John', 'Doe', 'john.doe@email.com', 'High', 'Technology, Sports', 'Northeastern University', 21, 'Boston'),
+('U000002', 'Student', '555-5678', 'Summer 2024', '1200-1800', 'Looking for a roommate', 'Jane', 'Smith', 'jane.smith@email.com', 'Medium', 'Music, Reading', 'Northeastern University', 22, 'Cambridge');
+
+-- Insert data into reviews
+INSERT IGNORE INTO reviews (review_id, rating, reviewer_id, reviewee_id, date, content, safety_score)
+VALUES
+(1, 5, 'U000001', 'U000002', '2024-11-01 10:30:00', 'Great roommate, very clean and organized.', 8),
+(2, 4, 'U000002', 'U000001', '2024-11-05 15:45:00', 'Friendly and respectful, highly recommend!', 9);
+
+-- Insert data into neighborhoods
+INSERT IGNORE INTO neighborhoods (neighborhood_id, name, population_density, safety_travel, insights)
+VALUES
+(1, 'Fenway', 12000, 4, 'Great for students, close to universities. Safe and vibrant area.'),
+(2, 'Back Bay', 8000, 5, 'Upscale area with beautiful architecture and excellent dining options.');
+
+-- Insert data into listings
+INSERT IGNORE INTO listings (listing_id, created_at, updated_at, rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+VALUES
+(1, '2024-04-01 08:30:00', '2024-04-01 08:30:00', 1500, 'Cozy 2BR Apartment', 'A comfortable two-bedroom apartment near campus.', 'WiFi, Laundry', 85, 4, 'Fenway', 'U000001', 1, 123, 'Main Street', 'Boston', 02115, TRUE, 6),
+(2, '2024-05-01 09:00:00', '2024-05-01 09:00:00', 1800, 'Spacious Studio', 'A spacious studio apartment in Back Bay.', 'AC, Parking', 90, 5, 'Back Bay', 'U000002', 2, 456, 'Elm Street', 'Boston', 02116, FALSE, 12);
+
+-- Insert data into message
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content)
+VALUES
+(1, '2024-04-05 14:00:00', 'U000001', 'U000002', 'Hi, I’m interested in your apartment listing. Can you provide more details?'),
+(2, '2024-04-06 15:30:00', 'U000002', 'U000001', 'Sure! The apartment has a great view and is very close to campus.');
+
+-- Insert data into roommateMatches
+INSERT IGNORE INTO roommateMatches (match_id, user1, user2, compatability_score, shared_interests)
+VALUES
+(1, 'U000001', 'U000002', 88, 'Music, Sports'),
+(2, 'U000002', 'U000001', 92, 'Reading, Technology');
+
+-- Insert data into analyticsDashboard
+INSERT IGNORE INTO analyticsDashboard (dashboard_id, seasonal_trend, vacancy_rate, safety_flag, demand_forecast, neighborhood)
+VALUES
+(1, 'Fall', 5, 'Green', 'High', 1),
+(2, 'Winter', 3, 'Yellow', 'Medium', 2);
+
+-- Insert data into housingCoordinator
+INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings)
+VALUES
+(1, 'Alice', 'Johnson', 'Housing', 1),
+(2, 'Bob', 'Williams', 'Student Affairs', 2);
+
+-- Insert data into events
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host)
+VALUES
+(1, 'Apartment Fair', '2024-06-01', 'Fenway', '02115', 'Find your perfect apartment.', 'Students', 'Northeastern University'),
+(2, 'Roommate Meet-up', '2024-07-15', 'Back Bay', '02116', 'Meet potential roommates.', 'Students and Professionals', 'Housing Association');
+
+
 
 
 -- Sample Data --
@@ -159,3 +217,4 @@ insert into users ( user_id, role, phone_number, coop_timeline, budget, housing_
 insert into users ( user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location) values (39, 'Nurse', '(345) 3966980', 'Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti. Nullam porttitor lacus at turpis.', 2037.59, false, 'Michel', 'Ullett', 'mullett12@redcross.org', 'Drainage of Thoracic Nerve, Perc Endo Approach, Diagn', null, 'National Institute of Technology, Jamshedpur', 19, 'Voskresenskoye');
 insert into users ( user_id, role, phone_number, coop_timeline, budget, housing_status, first_name, last_name, email, urgency, interests, university, age, preferred_location) values (40, 'Software Consultant', '(651) 1196044', 'Aenean fermentum. Donec ut mauris eget massa tempor convallis.', 1481.94, false, 'Fabian', 'Eighteen', 'feighteen13@about.me', 'Reattachment of R Abd Bursa/Lig, Perc Endo Approach', null, 'Dr. B.R. Ambedkar Open University', 20, 'Vinica');
 
+-- 
