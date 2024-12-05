@@ -10,6 +10,7 @@ from backend.dashboard.dashboard_routes import dashboard
 from backend.users.users_routes import users
 from backend.messages.messages_routes import messages
 from backend.events.events_routes import events
+from backend.matches.matches_routes import matches
 import os
 from dotenv import load_dotenv
 
@@ -54,6 +55,7 @@ def create_app():
     app.register_blueprint(users,       url_prefix='/u')
     app.register_blueprint(messages,   url_prefix='/m')
     app.register_blueprint(events,   url_prefix='/e')
+    app.register_blueprint(matches,   url_prefix='/x')
 
     # Don't forget to return the app object
     return app
