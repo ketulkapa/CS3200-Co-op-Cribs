@@ -52,6 +52,7 @@ def create_app():
     app.register_blueprint(dashboard,   url_prefix='/d')
     app.register_blueprint(users,       url_prefix='/u')
     app.register_blueprint(messages,   url_prefix='/m')
+    app.register_blueprint(messages,   url_prefix='/e')
 
     # Don't forget to return the app object
     return app
