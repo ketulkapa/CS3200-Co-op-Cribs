@@ -4,7 +4,6 @@ USE coopCribs;
 
 -- DDL --
 
-
 CREATE TABLE IF NOT EXISTS users (
   user_id INTEGER PRIMARY KEY AUTO_INCREMENT,
   role VARCHAR(100) NOT NULL,
