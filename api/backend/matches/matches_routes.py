@@ -59,12 +59,12 @@ def get_personalized_roommate_matches(user_id):
         LIMIT 10
     '''
     
-    cursor = db.get_db().cursor(dictionary=True)
+    cursor = db.get_db().cursor()
     cursor.execute(query, (user_id,))
     matches = cursor.fetchall()
 
     if not matches:
-        response = make_response(jsonify({'message': 'No matches found for the user.'}))
+        response = make_response(jsonify({'matches': 'No matches found for the user.'}))
         response.status_code = 404
         return response
 
@@ -84,7 +84,7 @@ def update_all_compatibility_scores():
         JOIN users u1 ON rm.user1 = u1.user_id
         JOIN users u2 ON rm.user2 = u2.user_id
     '''
-    cursor = db.get_db().cursor(dictionary=True)
+    cursor = db.get_db().cursor()
     cursor.execute(match_query)
     matches = cursor.fetchall()
 
