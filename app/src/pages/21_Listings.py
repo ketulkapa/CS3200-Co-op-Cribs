@@ -1,28 +1,61 @@
 import logging
-logger = logging.getLogger(__name__)
 import streamlit as st
-from modules.nav import SideBarLinks
 import requests
+from modules.nav import SideBarLinks
 
-st.set_page_config(layout = 'wide')
+# Initialize logger
+logger = logging.getLogger(__name__)
 
+# Add sidebar links
 SideBarLinks()
 
-st.title('App Administration Page')
+# Set up the page layout
+st.title("Filter Listings")
+st.write("## Find your perfect listing based on filters")
 
-st.write('\n\n')
-st.write('## Model 1 Maintenance')
+# Backend API URL base
+API_BASE_URL = "http://web-api:4000/l/listings"
 
-st.button("Train Model 01", 
-            type = 'primary', 
-            use_container_width=True)
+# User input filters
+st.write("### Apply Filters")
 
-st.button('Test Model 01', 
-            type = 'primary', 
-            use_container_width=True)
+# Filters for the listings
+rent_min = st.number_input("Minimum Rent", min_value=0, value=1000, step=100)
+rent_max = st.number_input("Maximum Rent", min_value=0, value=3000, step=100)
+location = st.text_input("Location (e.g., neighborhood or city)", "")
+zipcode = st.text_input("Zipcode", "")
+amenities = st.text_input("Amenities (e.g., WiFi, Parking)", "")
+safety_rating = st.number_input("Safety Rating", min_value=1, max_value=5, value=3)
 
-if st.button('Model 1 - get predicted value for 10, 25', 
-             type = 'primary',
-             use_container_width=True):
-  results = requests.get('http://api:4000/c/prediction/10/25').json()
-  st.dataframe(results)
+# Form to filter the listings
+st.write("### Filtered Listings")
+with st.form(key='filter_form'):
+    submit_filter = st.form_submit_button("Apply Filters")
+    
+    if submit_filter:
+        try:
+            # Prepare the filter parameters to send in the request
+            filters = {
+                "rent_min": rent_min,
+                "rent_max": rent_max,
+                "location": location,
+                "zipcode": zipcode,
+                "amenities": amenities,
+                "safety_rating": safety_rating
+            }
+
+            # Send the filters to the backend API
+            response = requests.get(API_BASE_URL, params=filters)
+
+            if response.status_code == 200:
+                listings = response.json()
+                if listings:
+                    st.dataframe(listings)
+                else:
+                    st.write("No listings found with the selected filters.")
+            else:
+                st.error(f"Failed to fetch listings. Status code: {response.status_code}")
+                logger.error(f"Error fetching listings: {response.text}")
+        except Exception as e:
+            st.error("An error occurred while fetching the listings.")
+            logger.exception("Exception while fetching listings")
