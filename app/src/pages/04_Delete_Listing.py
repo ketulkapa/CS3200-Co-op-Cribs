@@ -1,6 +1,5 @@
 import logging
 import streamlit as st
-from streamlit_extras.app_logo import add_logo
 from streamlit.runtime.scriptrunner import RerunException, RerunData
 import numpy as np
 import random

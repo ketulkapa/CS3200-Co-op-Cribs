@@ -5,7 +5,6 @@ from backend.listings.listings_routes import listings
 from backend.neighborhoods.neighborhoods_routes import neighborhoods
 from backend.products.products_routes import products
 from backend.reviews.reviews_routes import reviews
-from backend.simple.simple_routes import simple_routes
 from backend.dashboard.dashboard_routes import dashboard
 from backend.users.users_routes import users
 from backend.messages.messages_routes import messages
@@ -46,7 +45,6 @@ def create_app():
     # Register the routes from each Blueprint with the app object
     # and give a url prefix to each
     app.logger.info('current_app(): registering blueprints with Flask app object.')   
-    app.register_blueprint(simple_routes)
     app.register_blueprint(listings,   url_prefix='/l')
     app.register_blueprint(neighborhoods,   url_prefix='/n')
     app.register_blueprint(products,    url_prefix='/p')
