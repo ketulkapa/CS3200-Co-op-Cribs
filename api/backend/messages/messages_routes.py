@@ -39,11 +39,11 @@ def get_messages_for_user(user_id):
     query = '''
         SELECT m.message_id, m.sender_id, m.receiver_id, m.content, m.created_at
         FROM message m
-        WHERE m.receiver_id = %s AND m.sender_id = %s
+        WHERE m.receiver_id = %s OR m.sender_id = %s
         ORDER BY m.created_at DESC
     '''
     
-    cursor = db.get_db().cursor(dictionary=True)
+    cursor = db.get_db().cursor()
     cursor.execute(query, (user_id, user_id))
     messages = cursor.fetchall()
 
