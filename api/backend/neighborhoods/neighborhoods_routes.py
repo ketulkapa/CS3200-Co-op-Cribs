@@ -23,6 +23,17 @@ def get_all_neighborhoods():
     response.status_code = 200
     return response
 
+# Retrieve neighborhoods by name
+@neighborhoods.route('/neighborhoods/<name>', methods=['GET'])
+def get_zipcode_event(name):
+    cursor = db.get_db().cursor()
+    query = 'SELECT * FROM neighborhoods WHERE name = %s'
+    cursor.execute(query, (name,))
+    data = cursor.fetchall()
+    response = make_response(jsonify(data))
+    response.status_code = 200
+    return response
+
 
 # Add a new neighborhood
 @neighborhoods.route('/neighborhoods', methods=['POST'])
@@ -35,8 +46,8 @@ def add_neighborhood():
     insights = neighborhood_info.get('insights', None)
     
     query = '''
-        INSERT INTO neighborhoods (name, population_density, safety_travel, insights)
-        VALUES (%s, %s, %s, %s)
+        INSERT INTO neighborhoods (name, zipcode, population_density, safety_travel, insights)
+        VALUES (%s, %s, %s, %s, %s)
     '''
     data = (name, population_density, safety_travel, insights)
     cursor = db.get_db().cursor()
