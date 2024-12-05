@@ -832,4 +832,85 @@ INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, de
 INSERT IGNORE INTO housingCoordinator (coordinator_id, first_name, last_name, department, managed_listings) VALUES 
 (40, 'Noah', 'Perez', 'Housing Services', 40);
 
+-- events -- 
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(1, 'Welcome Back Party', '2024-01-01', 'University Hall', '10001', 'A fun gathering to kick off the new semester!', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(2, 'Tech Talk: Innovations in AI', '2024-02-10', 'Tech Auditorium', '10002', 'A seminar on the latest advancements in AI.', 'Tech Enthusiasts', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(3, 'Career Fair', '2024-03-15', 'Career Center', '10003', 'An event connecting students with top employers.', 'Students, Employers', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(4, 'Global Perspectives on Sustainability', '2024-04-01', 'Global Studies Building', '10004', 'Panel discussion on global sustainability efforts.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(5, 'Student Talent Show', '2024-05-05', 'Main Auditorium', '10005', 'A night to showcase student talent and creativity!', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(6, 'Tech Expo', '2024-06-20', 'Tech Expo Hall', '10006', 'An exhibition featuring the latest in tech innovation.', 'Tech Professionals, Students', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(7, 'Networking Night', '2024-07-10', 'University Lobby', '10007', 'A chance to network with professionals in your field.', 'Students, Alumni', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(8, 'Wellness Day', '2024-08-15', 'Student Center', '10008', 'A day dedicated to promoting physical and mental wellness.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(9, 'Hackathon 2024', '2024-09-30', 'Innovation Lab', '10009', '24-hour hackathon to solve real-world problems.', 'Students, Developers', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(10, 'International Food Festival', '2024-10-10', 'Campus Green', '10010', 'A celebration of global cuisine and culture.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(11, 'Environmental Clean-Up Drive', '2024-11-05', 'City Park', '10011', 'Join us for a day of environmental service and fun!', 'Students, Faculty, Community', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(12, 'Poetry Slam', '2024-12-01', 'Art Gallery', '10012', 'A night of creative expression through poetry.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(13, 'Annual Charity Run', '2025-01-15', 'City Center', '10013', 'Support local charities while getting fit!', 'Students, Faculty, Community', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(14, 'Art & Design Exhibition', '2025-02-01', 'Art Studio', '10014', 'A display of student artwork and design projects.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(15, 'Music Festival', '2025-03-20', 'Outdoor Stage', '10015', 'A music festival featuring student and local bands.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(16, 'Campus Clean-Up Day', '2025-04-10', 'Campus Grounds', '10016', 'Join us to clean up our campus and make it greener.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(17, 'Startup Pitch Event', '2025-05-05', 'Business Center', '10017', 'A pitch event for aspiring entrepreneurs.', 'Students, Entrepreneurs', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(18, 'Coding Bootcamp', '2025-06-15', 'Innovation Lab', '10018', 'Learn to code in a weekend with expert mentors.', 'Students, Developers', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(19, 'Virtual Career Workshop', '2025-07-20', 'Online', '10019', 'A virtual workshop to help students navigate career opportunities.', 'Students', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(20, 'International Student Meetup', '2025-08-01', 'Student Lounge', '10020', 'A meetup for international students to network and share experiences.', 'International Students', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(21, 'Outdoor Movie Night', '2025-09-05', 'Campus Lawn', '10021', 'Watch a classic movie under the stars.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(22, 'Mindfulness Workshop', '2025-10-01', 'Wellness Center', '10022', 'Learn mindfulness techniques to manage stress and improve focus.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(23, 'Science Fair', '2025-11-10', 'Science Building', '10023', 'Showcase of scientific projects by students and faculty.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(24, 'Annual Food Drive', '2025-12-05', 'Student Center', '10024', 'Donate food to help those in need during the holiday season.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(25, 'Robotics Competition', '2026-01-15', 'Engineering Lab', '10025', 'Compete with teams from across the region in a robotics challenge.', 'Students, Tech Enthusiasts', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(26, 'Career Mentorship Program', '2026-02-10', 'Career Center', '10026', 'Connect with alumni for career guidance and advice.', 'Students, Alumni', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(27, 'Guest Speaker Series: Sustainability', '2026-03-01', 'Auditorium', '10027', 'A lecture on sustainable practices and innovations.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(28, 'Open Mic Night', '2026-04-15', 'Student Union', '10028', 'A chance for students to showcase their talents, from music to comedy.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(29, 'Coding Challenge', '2026-05-20', 'Innovation Hub', '10029', 'A challenge where students solve coding problems in teams.', 'Students, Developers', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(30, 'Fitness Challenge', '2026-06-10', 'Gymnasium', '10030', 'A fitness challenge to promote a healthy lifestyle among students.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(31, 'Diversity Conference', '2026-07-05', 'Conference Center', '10031', 'A conference focusing on diversity and inclusion in the workplace.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(32, 'Leadership Summit', '2026-08-01', 'Student Center', '10032', 'A summit to inspire and develop leadership skills among students.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(33, 'Tech Startup Week', '2026-09-20', 'Innovation Lab', '10033', 'Workshops and talks by successful tech entrepreneurs.', 'Students, Entrepreneurs', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(34, 'Charity Auction', '2026-10-01', 'Campus Lounge', '10034', 'A fundraising auction to support local charities.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(35, 'Film Festival', '2026-11-15', 'Film Hall', '10035', 'A showcase of student films and documentaries.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(36, 'Annual Conference on Education', '2026-12-05', 'Conference Center', '10036', 'An educational conference on current trends in teaching and learning.', 'Educators, Students', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(37, 'Photography Workshop', '2027-01-25', 'Art Studio', '10037', 'A workshop to enhance your photography skills.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(38, 'Cultural Diversity Celebration', '2027-02-15', 'Student Center', '10038', 'Celebrate cultural diversity through performances and food.', 'Students, Faculty', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(39, 'Community Health Fair', '2027-03-10', 'Campus Green', '10039', 'A health fair promoting wellness and healthy living.', 'Students, Faculty, Community', 'Northeastern University');
+INSERT IGNORE INTO events (events_id, name, event_date, loc, zipcode, description, target_audience, event_host) VALUES 
+(40, 'Art Gala', '2027-04-01', 'Art Gallery', '10040', 'A gala to raise funds for art scholarships and grants.', 'Students, Faculty, Alumni', 'Northeastern University');
 -- 
