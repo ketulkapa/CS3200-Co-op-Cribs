@@ -47,6 +47,28 @@ def HousingRecentListingsNav():
         "pages/05_Recent_Listings.py", label="Recent Listings", icon="🔎"
     )
 
+#### ------------------------ Examples for Role of Investor ------------------------
+def InvestorHomeNav():
+    st.sidebar.page_link(
+        "pages/40_Investor_Home.py", label="Investor Home", icon="🏠"
+    )
+
+
+def InvestorReviewsNav():
+    st.sidebar.page_link(
+        "pages/41_Subletter_Reviews.py", label="Reviews", icon="✨"
+    )
+
+
+def InvestorAnalyticsNav():
+    st.sidebar.page_link(
+        "pages/42_Investor_Analytics.py", label="Analytics", icon="📈"
+    )
+
+def InvestorMessagingNav():
+    st.sidebar.page_link(
+        "pages/43_Messaging.py", label="Messaging", icon="👤"
+    )
 
 ## ------------------------ Examples for Role of usaid_worker ------------------------
 def ApiTestNav():
@@ -104,10 +126,11 @@ def SideBarLinks(show_home=False):
             HousingRecentListingsNav()
 
         # If the user role is usaid worker, show the Api Testing page
-        if st.session_state["role"] == "usaid_worker":
-            PredictionNav()
-            ApiTestNav()
-            ClassificationNav()
+        if st.session_state["role"] == "investor":
+            InvestorHomeNav()
+            InvestorReviewsNav()
+            InvestorAnalyticsNav()
+            InvestorMessagingNav()
 
         # If the user is an administrator, give them access to the administrator pages
         if st.session_state["role"] == "administrator":
