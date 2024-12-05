@@ -87,33 +87,33 @@ def ClassificationNav():
     )
 
 
-#### ------------------------ System Admin Role ------------------------
-def RameshHomeNav():
+#### ------------------------ Student Role ------------------------
+def StudentHomeNav():
     st.sidebar.page_link(
         "pages/20_Ramesh_Home.py", label="Ramesh Home", icon="🏠"
     )
 
-def RameshListingsSearch():
+def StudentListingsSearch():
     st.sidebar.page_link(
         "pages/21_Listings.py", label="Listings Sarch", icon="📈"
     )
 
-def RameshMessages():
+def StudentMessages():
     st.sidebar.page_link(
         "pages/22_Messaging.py", label="Messages", icon="💬"
     )
 
-def RameshEventsSearch():
+def StudentEventsSearch():
     st.sidebar.page_link(
         "pages/23_Events.py", label="Events", icon="🎉"
     )
 
-def RameshMatches():
+def StudentMatches():
     st.sidebar.page_link(
         "pages/23_Events.py", label="Events", icon="🌺"
     )
 
-def RameshNeighborhoodsSearch():
+def StudentNeighborhoodsSearch():
     st.sidebar.page_link(
         "pages/26_Neighborhoods.py", label="Neighborhoods", icon="🔎"
     )
@@ -182,9 +182,14 @@ def SideBarLinks(show_home=False):
             InvestorAnalyticsNav()
             InvestorMessagingNav()
 
-        # If the user is an administrator, give them access to the administrator pages
-        if st.session_state["role"] == "administrator":
-            AdminPageNav()
+        # If the user is Ramesh, give them access to the Ramesh pages
+        if st.session_state["role"] == "student":
+            StudentHomeNav()
+            StudentListingsSearch()
+            StudentMessages()
+            StudentEventsSearch()
+            StudentMatches()
+            StudentNeighborhoodsSearch()
 
     # Always show the About page at the bottom of the list of links
     AboutPageNav()
