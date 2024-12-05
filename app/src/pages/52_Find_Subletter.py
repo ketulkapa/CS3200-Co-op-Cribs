@@ -27,7 +27,7 @@ st.session_state.action = st.selectbox(
 )
 
 # API endpoints
-base_url = "http://api:4000"
+base_url = "http://web-api:4000"
 
 # Execute selected action
 if st.session_state.action == "Search for Subletters":
