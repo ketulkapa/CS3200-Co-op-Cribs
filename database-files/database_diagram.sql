@@ -504,4 +504,86 @@ INSERT IGNORE INTO listings (listing_id, created_at, updated_at, rent_amount, ti
 INSERT IGNORE INTO listings (listing_id, created_at, updated_at, rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline) VALUES 
 (40, '2027-04-01 14:00:00', '2027-04-02 14:00:00', 1500, 'Modern 2-Bedroom in Queens', 'A modern 2-bedroom apartment in a prime location of Queens, close to transport and parks.', 'Wi-Fi, Elevator, No Pets', 85, 8, 'Queens', 40, 40, 4040, 'Queens Blvd', 'Queens', 11375, true, 10);
 
+-- message --
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(1, '2024-01-01 10:00:00', 1, 2, 'Hi, I am interested in your listing. Could you share more details?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(2, '2024-01-02 10:30:00', 2, 3, 'Thanks for reaching out! The apartment is available. Let me know if you have any questions.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(3, '2024-01-03 12:00:00', 3, 4, 'I have some questions about the rent. Is it negotiable?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(4, '2024-01-04 14:00:00', 4, 5, 'The rent is fixed, but I can offer some flexibility on the move-in date.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(5, '2024-01-05 16:30:00', 5, 6, 'I love the location of your apartment. When can I schedule a tour?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(6, '2024-01-06 17:00:00', 6, 7, 'The tour is scheduled for tomorrow at 3 PM. Let me know if that works for you.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(7, '2024-01-07 11:30:00', 7, 8, 'I’m interested in the lease terms. How long is the minimum lease period?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(8, '2024-01-08 13:00:00', 8, 9, 'The minimum lease period is 6 months. Let me know if you have any other questions.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(9, '2024-01-09 15:00:00', 9, 10, 'I’m looking for a pet-friendly apartment. Does your listing allow pets?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(10, '2024-01-10 16:00:00', 10, 11, 'Yes, pets are allowed with a small deposit. Let me know if you’re still interested.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(11, '2024-01-11 18:00:00', 11, 12, 'I’m looking for a quiet place to study. Is the apartment in a quiet area?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(12, '2024-01-12 20:00:00', 12, 13, 'Yes, the apartment is located in a residential area, so it’s quite peaceful.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(13, '2024-01-13 09:00:00', 13, 14, 'How’s the neighborhood in terms of safety and amenities?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(14, '2024-01-14 10:30:00', 14, 15, 'The neighborhood is safe, and there are plenty of shops, parks, and public transport nearby.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(15, '2024-01-15 12:00:00', 15, 16, 'I’m concerned about the noise levels. Is the apartment soundproofed?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(16, '2024-01-16 13:30:00', 16, 17, 'The apartment is relatively quiet, and there are noise-reducing features in place.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(17, '2024-01-17 15:00:00', 17, 18, 'Can you provide some photos of the inside of the apartment?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(18, '2024-01-18 16:30:00', 18, 19, 'Sure, I’ll send you the photos shortly. Let me know what else you need.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(19, '2024-01-19 18:00:00', 19, 20, 'I am considering a few options. Could you provide a discount for a longer lease?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(20, '2024-01-20 19:30:00', 20, 21, 'I can offer a small discount for leases longer than a year. Let me know if that works for you.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(21, '2024-01-21 10:00:00', 21, 22, 'When would be a good time for you to meet and discuss the details?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(22, '2024-01-22 11:00:00', 22, 23, 'How about tomorrow afternoon at 2 PM? Does that work for you?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(23, '2024-01-23 13:00:00', 23, 24, 'Perfect, I’ll see you tomorrow at 2 PM. Looking forward to it!'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(24, '2024-01-24 14:00:00', 24, 25, 'I’m interested in the apartment. Can we set up a tour for this weekend?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(25, '2024-01-25 16:00:00', 25, 26, 'Saturday works well for me. How about 1 PM?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(26, '2024-01-26 17:30:00', 26, 27, 'That works! See you Saturday at 1 PM. Excited to check out the place.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(27, '2024-01-27 19:00:00', 27, 28, 'Can you send me your availability for a tour this week?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(28, '2024-01-28 10:00:00', 28, 29, 'I am available on Wednesday and Friday afternoon. Let me know what works best for you.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(29, '2024-01-29 11:00:00', 29, 30, 'Friday at 2 PM works great. Looking forward to it!'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(30, '2024-01-30 12:30:00', 30, 31, 'Thanks for your patience. I’ve received your details and will process them soon.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(31, '2024-01-31 14:00:00', 31, 32, 'Let me know if you need any further documentation or info from my side.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(32, '2024-02-01 15:00:00', 32, 33, 'I’ll send the documents over later today. Thanks for your help!'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(33, '2024-02-02 16:30:00', 33, 34, 'I have a few more questions about the building’s amenities. Could you clarify?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(34, '2024-02-03 17:00:00', 34, 35, 'Certainly! The building has a fitness center, laundry on-site, and a rooftop lounge.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(35, '2024-02-04 18:00:00', 35, 36, 'Thanks for the clarification! I’ll get back to you soon with a decision.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(36, '2024-02-05 19:00:00', 36, 37, 'Let me know when you’ve made a decision. Happy to assist with any further questions.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(37, '2024-02-06 20:00:00', 37, 38, 'I’d like to move forward. What are the next steps?'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(38, '2024-02-07 21:00:00', 38, 39, 'I’ll prepare the lease agreement for you. I’ll send it over for review shortly.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(39, '2024-02-08 22:00:00', 39, 40, 'Looking forward to signing the lease. Please let me know if anything is needed from my side.'); 
+INSERT IGNORE INTO message (message_id, created_at, sender_id, receiver_id, content) VALUES 
+(40, '2024-02-09 23:00:00', 40, 1, 'Great! I’ll send over the contract tomorrow. Thank you for your patience.');
+
 -- 
