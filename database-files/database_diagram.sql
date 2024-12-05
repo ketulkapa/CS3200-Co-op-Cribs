@@ -153,16 +153,6 @@ VALUES
 ('Alice', 'Johnson', 'Housing'),
 ('Bob', 'Williams', 'Housing');
 
-INSERT IGNORE INTO coordinatorDashboardAccess (coordinator_id, dashboard_id)
-VALUES
-    (1, 1),
-    (1, 2);
-
-INSERT INTO coordinatorManagedListings (coordinator_id, listing_id)
-VALUES
-    (1, 1),
-    (1, 2);
-
 INSERT INTO events (name, event_date, loc, description, target_audience, event_host)
 VALUES
 ('Northeastern Networking Meetup', '2024-12-10 18:00:00', 'Central Park, NYC', 'A networking event for Northeastern students to connect with alumni and other students in New York City.', 'Northeastern students', 'Northeastern University'),
