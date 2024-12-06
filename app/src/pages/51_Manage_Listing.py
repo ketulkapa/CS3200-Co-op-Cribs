@@ -10,36 +10,51 @@ logger = logging.getLogger(__name__)
 SideBarLinks()
 
 # Set up the page layout
-st.write("# Create a New Listing")
+st.write("# Create or Update a Listing")
 
 """
-Add a new listing to connect with subletters.
+Manage your property listings efficiently.
 """
 
-# Input fields for creating a new listing
-title = st.text_input("Listing Title:", value="")
-location = st.text_input("Location:", value="")
+# Input fields for creating or updating a listing
+listing_id = st.text_input("Listing ID (for updates only):", value="")
 rent_amount = st.number_input("Rent Amount (in USD):", min_value=0, value=0)
-start_date = st.date_input("Available From:")
-end_date = st.date_input("Available Until:")
-description = st.text_area("Listing Description:", value="")
+title = st.text_input("Listing Title:", value="")
+description = st.text_area("Description:", value="")
+amenities = st.text_input("Amenities (comma-separated):", value="")
+safety_rating = st.slider("Safety Rating (1-5):", min_value=1, max_value=5, value=3)
+location = st.text_input("Location (general area):", value="")
+created_by = st.text_input("Created By (user ID):", value="")
+neighborhood_id = st.text_input("Neighborhood ID:", value="")
+house_number = st.text_input("House Number:", value="")
+street = st.text_input("Street:", value="")
+city = st.text_input("City:", value="")
+zipcode = st.text_input("Zip Code:", value="")
+verification_status = st.selectbox("Verification Status:", ["Pending", "Approved", "Denied"])
+timeline = st.text_input("Timeline (e.g., 6 months):", value="")
 
-# Button to submit the new listing
+# Button to create a new listing
 if st.button("Create Listing"):
-    # Ensure all required fields are filled
-    if title.strip() and location.strip() and rent_amount > 0 and start_date and end_date:
+    # Validate required fields
+    if rent_amount > 0 and title.strip() and location.strip() and created_by.strip():
         try:
-            # Prepare the data to send in the POST request
+            api_url = 'http://api:4000/l/listings'
             listing_data = {
-                "title": title,
-                "location": location,
                 "rent_amount": rent_amount,
-                "start_date": str(start_date),
-                "end_date": str(end_date),
+                "title": title,
                 "description": description,
+                "amenities": amenities,
+                "safety_rating": safety_rating,
+                "location": location,
+                "created_by": created_by,
+                "neighborhood_id": neighborhood_id,
+                "house_number": house_number,
+                "street": street,
+                "city": city,
+                "zipcode": zipcode,
+                "verification_status": verification_status,
+                "timeline": timeline,
             }
-            api_url = 'http://api:4000/l/listings/create'
-            logger.info(f"Sending POST request to {api_url} with data: {listing_data}")
             response = requests.post(api_url, json=listing_data)
 
             if response.status_code == 201:  # 201 Created
@@ -54,11 +69,45 @@ if st.button("Create Listing"):
     else:
         st.warning("Please fill in all required fields.")
 
-# Button to show all existing listings
+# Button to update an existing listing
+if st.button("Update Listing"):
+    # Validate required fields for update
+    if listing_id.strip() and rent_amount > 0 and title.strip() and location.strip():
+        try:
+            api_url = f'http://api:4000/l/listings/{listing_id}'
+            listing_data = {
+                "rent_amount": rent_amount,
+                "title": title,
+                "description": description,
+                "amenities": amenities,
+                "safety_rating": safety_rating,
+                "location": location,
+                "neighborhood_id": neighborhood_id,
+                "house_number": house_number,
+                "street": street,
+                "city": city,
+                "zipcode": zipcode,
+                "verification_status": verification_status,
+                "timeline": timeline,
+            }
+            response = requests.put(api_url, json=listing_data)
+
+            if response.status_code == 200:  # 200 OK
+                st.success("Listing updated successfully!")
+                logger.info("Listing updated successfully.")
+            else:
+                st.error(f"Failed to update listing. Status code: {response.status_code}")
+                logger.error(f"Error updating listing: {response.text}")
+        except Exception as e:
+            st.error("An error occurred while updating the listing.")
+            logger.exception("Exception while updating listing")
+    else:
+        st.warning("Please fill in all required fields for update.")
+
+# Optional button to view all listings
 if st.button("View All Listings"):
     try:
         api_url = 'http://api:4000/l/listings'
-        logger.info(f"Fetching all listings from {api_url}")
         response = requests.get(api_url)
 
         if response.status_code == 200:
