@@ -27,7 +27,7 @@ def get_all_dashboard():
 def get_dashboard(dashboard_id):
     cursor = db.get_db().cursor()
     cursor.execute('''
-                    SELECT * FROM dashboard WHERE id = {0}
+                    SELECT * FROM analyticsDashboard WHERE dashboard_id = {0}
     '''.format(dashboard_id))
     
     theData = cursor.fetchall()
