@@ -168,7 +168,7 @@ def get_new_listings(end_date):
     return the_response
 
 # Approve a specific listing
-@listings.route('/listings/approve/<listingID>', methods=['PUT'])
+@listings.route('/listings/approve/<listing_id>', methods=['PUT'])
 def approve_listing(listing_id):
     query = '''
         UPDATE listings SET verification_status = TRUE WHERE listing_id = %s
@@ -184,7 +184,7 @@ def approve_listing(listing_id):
     return the_response
 
 # Deny a specific listing
-@listings.route('/listings/deny/<listingID>', methods=['PUT'])
+@listings.route('/listings/deny/<listing_id>', methods=['PUT'])
 def deny_listing(listing_id):
     query = '''
         UPDATE listings SET verification_status = FALSE WHERE listing_id = %s
