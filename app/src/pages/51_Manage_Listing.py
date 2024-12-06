@@ -38,7 +38,7 @@ if st.button("Create Listing"):
                 "end_date": str(end_date),
                 "description": description,
             }
-            api_url = 'http://api:4000/listings/create'
+            api_url = 'http://api:4000/l/listings/create'
             logger.info(f"Sending POST request to {api_url} with data: {listing_data}")
             response = requests.post(api_url, json=listing_data)
 
@@ -57,7 +57,7 @@ if st.button("Create Listing"):
 # Button to show all existing listings
 if st.button("View All Listings"):
     try:
-        api_url = 'http://api:4000/listings'
+        api_url = 'http://api:4000/l/listings'
         logger.info(f"Fetching all listings from {api_url}")
         response = requests.get(api_url)
 
