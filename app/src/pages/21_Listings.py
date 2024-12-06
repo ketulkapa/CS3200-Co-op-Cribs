@@ -25,7 +25,7 @@ rent_max = st.number_input("Maximum Rent", min_value=0, value=3000, step=100)
 location = st.text_input("Location (e.g., neighborhood or city)", "")
 zipcode = st.text_input("Zipcode", "")
 amenities = st.text_input("Amenities (e.g., WiFi, Parking)", "")
-safety_rating = st.number_input("Safety Rating", min_value=1, max_value=10, value=3)
+safety_rating = st.text_input("Safety Rating (1-10)")
 
 # Form to filter the listings
 st.write("### Filtered Listings")
