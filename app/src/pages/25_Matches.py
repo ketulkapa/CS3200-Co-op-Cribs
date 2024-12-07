@@ -26,7 +26,7 @@ if user_id.strip():
         response = requests.get(f"{API_BASE_URL}/{user_id}")
         
         if response.status_code == 200:
-            matches = response.json().get('matches', [])
+            matches = response.json()
             if matches:
                 st.dataframe(matches)
             else:
