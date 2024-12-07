@@ -29,7 +29,7 @@ if st.button("Find events near me",
              use_container_width=True):
   st.switch_page('pages/23_Events.py')
 
-if st.button("Find potential room mates",
+if st.button("Find potential roommates",
              type='primary',
              use_container_width=True):
   st.switch_page('pages/25_Matches.py')
