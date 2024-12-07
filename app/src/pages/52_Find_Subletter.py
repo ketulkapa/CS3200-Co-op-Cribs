@@ -13,7 +13,7 @@ SideBarLinks()
 st.write("# Find Subletters")
 
 """
-Easily search for subletters that match your preferences, view matches, and send messages.
+Easily search for subletters that match your preferences and send messages.
 """
 
 # Dropdown for selecting an action
@@ -22,8 +22,12 @@ if "action" not in st.session_state:
 
 st.session_state.action = st.selectbox(
     "What would you like to do?",
-    options=["Search for Subletters", "View Matches", "Send a Message"],
-    index=["Search for Subletters", "View Matches", "Send a Message"].index(st.session_state.action)
+    options=["Search for Subletters", 
+            #  "View Matches",
+               "Send a Message"],
+    index=["Search for Subletters", 
+        #    "View Matches",
+             "Send a Message"].index(st.session_state.action)
 )
 
 # API endpoints
@@ -35,29 +39,21 @@ if st.session_state.action == "Search for Subletters":
     # Persist form field states
     if "budget" not in st.session_state:
         st.session_state.budget = 0
-    if "start_date" not in st.session_state:
-        st.session_state.start_date = None
-    if "end_date" not in st.session_state:
-        st.session_state.end_date = None
-    if "vibe" not in st.session_state:
-        st.session_state.vibe = ""
+    if "amenities" not in st.session_state:
+        st.session_state.amenities = ""
 
     # Form fields for search criteria
     st.session_state.budget = st.number_input("Maximum Monthly Rent", min_value=0, value=st.session_state.budget)
-    st.session_state.start_date = st.date_input("Start Date", value=st.session_state.start_date)
-    st.session_state.end_date = st.date_input("End Date", value=st.session_state.end_date)
-    st.session_state.vibe = st.text_input("Preferred Vibe (e.g., quiet, social, etc.)", value=st.session_state.vibe)
+    st.session_state.amenities = st.text_input("Preferred amenities (e.g., gym, pool, etc.)", value=st.session_state.amenities)
 
     # Trigger search
     if st.button("Search"):
         params = {
             "budget": st.session_state.budget,
-            "start_date": str(st.session_state.start_date),
-            "end_date": str(st.session_state.end_date),
-            "vibe": st.session_state.vibe
+            "amenities": st.session_state.amenities
         }
         try:
-            response = requests.get(f"{base_url}/l/listings", params=params)
+            response = requests.get(f"{base_url}/l/listings/leah", params=params)
             if response.status_code == 200:
                 subletters_data = response.json()
                 if subletters_data:
@@ -72,25 +68,25 @@ if st.session_state.action == "Search for Subletters":
             st.error("An error occurred while searching.")
             logger.exception("Error searching subletters")
 
-elif st.session_state.action == "View Matches":
-    st.write("### View Your Matches")
-    user_id = st.text_input("Enter Your User ID")
-    if user_id.strip() and st.button("Get Matches"):
-        try:
-            response = requests.get(f"{base_url}/x/matches/{user_id}")
-            if response.status_code == 200:
-                matches_data = response.json()
-                if matches_data:
-                    st.write("### Your Matches")
-                    st.dataframe(matches_data)
-                else:
-                    st.write("No matches found for your user ID.")
-            else:
-                st.error(f"Failed to retrieve matches. {response.text}")
-                logger.error(f"Error retrieving matches: {response.text}")
-        except Exception as e:
-            st.error("An error occurred while retrieving matches.")
-            logger.exception("Error retrieving matches")
+# elif st.session_state.action == "View Matches":
+#     st.write("### View Your Matches")
+#     user_id = st.text_input("Enter Your User ID")
+#     if user_id.strip() and st.button("Get Matches"):
+#         try:
+#             response = requests.get(f"{base_url}/x/matches/{user_id}")
+#             if response.status_code == 200:
+#                 matches_data = response.json()
+#                 if matches_data:
+#                     st.write("### Your Matches")
+#                     st.dataframe(matches_data)
+#                 else:
+#                     st.write("No matches found for your user ID.")
+#             else:
+#                 st.error(f"Failed to retrieve matches. {response.text}")
+#                 logger.error(f"Error retrieving matches: {response.text}")
+#         except Exception as e:
+#             st.error("An error occurred while retrieving matches.")
+#             logger.exception("Error retrieving matches")
 
 elif st.session_state.action == "Send a Message":
     st.write("### Send a Message to a Subletter")

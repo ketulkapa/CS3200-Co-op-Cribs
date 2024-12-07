@@ -54,7 +54,7 @@ def get_personalized_roommate_matches(user_id):
                u.first_name, u.last_name, u.budget, u.preferred_location, u.interests
         FROM roommateMatches rm
         JOIN users u ON rm.user2 = u.user_id
-        WHERE rm.user1 = %s
+        WHERE rm.user2 = %s
         ORDER BY rm.compatability_score DESC
         LIMIT 10
     '''
@@ -68,7 +68,7 @@ def get_personalized_roommate_matches(user_id):
         response.status_code = 404
         return response
 
-    response = make_response(jsonify({'matches': matches}))
+    response = make_response(jsonify(matches))
     response.status_code = 200
     return response
 

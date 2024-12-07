@@ -101,7 +101,7 @@ def StudentHomeNav():
 
 def StudentListingsSearch():
     st.sidebar.page_link(
-        "pages/21_Listings.py", label="Listings Sarch", icon="📈"
+        "pages/21_Listings.py", label="Listings Search", icon="📈"
     )
 
 def StudentMessages():

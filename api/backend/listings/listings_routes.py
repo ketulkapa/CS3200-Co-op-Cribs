@@ -241,3 +241,21 @@ def filter_listings():
     listings = cursor.fetchall()
 
     return jsonify(listings)
+
+
+# Get listings that match the user's budget and amenities
+@listings.route('/listings/leah', methods=['GET'])
+def leah():
+    rent_amount = request.args.get('budget', type=int)
+    amenities = request.args.get('amenities', type=str)
+    cursor = db.get_db().cursor()
+    cursor.execute('''
+                    SELECT * FROM listings WHERE rent_amount <= %s
+                   AND amenities LIKE %s
+    ''', (rent_amount, f"%{amenities}%"))
+    
+    theData = cursor.fetchall()
+    
+    the_response = make_response(jsonify(theData))
+    the_response.status_code = 200
+    return the_response
