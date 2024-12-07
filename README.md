@@ -16,6 +16,7 @@ Before starting the Docker containers, you need to configure your environment va
 - DB_USER: MySQL username (typically root).
 - DB_HOST: The database container's hostname (db).
 - DB_PORT: The port for the MySQL database (default is 3306).
+- DB_NAME: The name of the database (coopCribs)
 - MYSQL_ROOT_PASSWORD: The root password for the MySQL database.
 
 Now, before interacting with the web app, ensure that Docker containers are running. This is necessary to start the Streamlit app, Flask API, and MySQL database.
