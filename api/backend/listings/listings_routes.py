@@ -34,12 +34,13 @@ def get_listings():
 # Add a new listing
 @listings.route('/listings', methods=['POST'])
 def add_listing():
-    current_app.logger.info('PUT /listings route')
+    current_app.logger.info('POST /listings route')
     listing_info = request.json
     rent_amount = listing_info['rent_amount']
     title = listing_info['title']
     description = listing_info['description']
     amenities = listing_info['amenities']
+    match_score = listing_info['match_score']
     safety_rating = listing_info['safety_rating']
     location = listing_info['location']
     created_by = listing_info['created_by']
@@ -55,7 +56,7 @@ def add_listing():
         INSERT INTO listings (rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
         VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
     '''
-    data = (rent_amount, title, description, amenities, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
+    data = (rent_amount, title, description, amenities, match_score, safety_rating, location, created_by, neighborhood_id, house_number, street, city, zipcode, verification_status, timeline)
 
     cursor = db.get_db().cursor()
     cursor.execute(query, data)

@@ -22,6 +22,7 @@ rent_amount = st.number_input("Rent Amount (in USD):", min_value=0, value=0)
 title = st.text_input("Listing Title:", value="")
 description = st.text_area("Description:", value="")
 amenities = st.text_input("Amenities (comma-separated):", value="")
+match_score = st.number_input("Match Score:", min_value=0, max_value=100, value=0)
 safety_rating = st.slider("Safety Rating (1-5):", min_value=1, max_value=5, value=3)
 location = st.text_input("Location (general area):", value="")
 created_by = st.text_input("Created By (user ID):", value="")
@@ -30,7 +31,7 @@ house_number = st.text_input("House Number:", value="")
 street = st.text_input("Street:", value="")
 city = st.text_input("City:", value="")
 zipcode = st.text_input("Zip Code:", value="")
-verification_status = st.selectbox("Verification Status:", ["Pending", "Approved", "Denied"])
+verification_status = st.checkbox("Verification Status", value=False)
 timeline = st.text_input("Timeline (e.g., 6 months):", value="")
 
 # Button to create a new listing
@@ -44,6 +45,7 @@ if st.button("Create Listing"):
                 "title": title,
                 "description": description,
                 "amenities": amenities,
+                'match_score': match_score,
                 "safety_rating": safety_rating,
                 "location": location,
                 "created_by": created_by,
