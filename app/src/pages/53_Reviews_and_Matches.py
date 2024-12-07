@@ -17,7 +17,7 @@ Find matches for your subletting needs.
 """
 
 # API endpoint
-base_url = "http://api:4000"
+base_url = "http://web-api:4000"
 
 # Initialize session state for user ID if not already set
 if "user_id" not in st.session_state:

@@ -38,7 +38,7 @@ if st.button("Create Listing"):
     # Validate required fields
     if rent_amount > 0 and title.strip() and location.strip() and created_by.strip():
         try:
-            api_url = 'http://api:4000/l/listings'
+            api_url = 'http://web-api:4000/l/listings'
             listing_data = {
                 "rent_amount": rent_amount,
                 "title": title,
@@ -74,7 +74,7 @@ if st.button("Update Listing"):
     # Validate required fields for update
     if listing_id.strip() and rent_amount > 0 and title.strip() and location.strip():
         try:
-            api_url = f'http://api:4000/l/listings/{listing_id}'
+            api_url = f'http://web-api:4000/l/listings/{listing_id}'
             listing_data = {
                 "rent_amount": rent_amount,
                 "title": title,
@@ -107,7 +107,7 @@ if st.button("Update Listing"):
 # Optional button to view all listings
 if st.button("View All Listings"):
     try:
-        api_url = 'http://api:4000/l/listings'
+        api_url = 'http://web-api:4000/l/listings'
         response = requests.get(api_url)
 
         if response.status_code == 200:
