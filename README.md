@@ -108,6 +108,8 @@ When you open this page on the side bar as well as on the investor dashboard pag
 ## Settled 
 Once you are finally settled with your match or updated your listing and it is time to close the webpage, dont forget to 'docker compose down' to shutdown and stop the containers. 
 
-### Demo walk through: 
+### Demo walk through:
+https://drive.google.com/file/d/1OQDb1QCy42wiHpst-F-7qU3uzbwzahAZ/view?usp=drive_link
+
 
 ## Thanks for using Co-Op Cribs. Hope you found your match!
